@@ -1,3 +1,9 @@
+# Add sensitive folders just in case
+.localrc
+*.local
+.ssh/
+
+# Misc
 .DS_Store
 *~
 *.swp
