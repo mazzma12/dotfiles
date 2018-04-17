@@ -40,12 +40,12 @@ exit
 ssh -O exit user@host
 # login again; shell should change
 # clone the repo
-git clone --bare git@github.com:altosaar/dotfiles.git $HOME/.cfg
+git clone --bare git@github.com:mazzma12/dotfiles.git $HOME/.cfg
 # add to zshrc or bashrc
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # add to gitignore
 echo ".cfg" >> .gitignore
-config checkout
+config checkout .
 config config --local status.showUntrackedFiles no
 # IMPORTANT: this pulls the latest plugins we are using, see below
 config submodule update --init
