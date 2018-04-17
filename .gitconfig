@@ -1,0 +1,75 @@
+# Local/private config goes in the include
+[include]
+        path = ~/.gitconfig.local
+#[hub]
+#        protocol = https
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+[help]
+        autocorrect = 1
+[push]
+        # See `git help config` (search for push.default)
+        # for more information on different options of the below setting.
+        #
+        # Setting to git 2.0 default to suppress warning message
+        default = simple
+[core]
+
+  excludesfile = ~/.gitignore_global
+#  attributesfile = /Users/matthieu/.gitattributes
+[alias]
+  ## From coderwall : https://coderwall.com/p/euwpig/a-better-git-log
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  
+  ###########################################
+  # The essentials
+  ###########################################
+
+  # -sb for a less verbose status
+  st = status -sb
+  # Easy commits fixup. To use with git rebase -i --autosquash
+  # fixup = commit --fixup
+  # If you use Hub by Github
+  # ci = ci-status
+
+ ###########################################
+  # The command line sugar
+  ###########################################
+
+  # Pop your last commit out of the history! No change lost, just unindexed
+  pop = reset HEAD^
+  # Fix your last commit without prompting an editor
+  oops = commit --amend --no-edit
+  # Add a file/directory to your .gitignore
+  ignore = "!f() { echo \"$1\" >> .gitignore; }; f"
+  # A more concise and readable git log
+  ls = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%cn]\\%Cred%d" --decorate
+  # Same as above, with files changed in each commit
+  ll = ls --numstat
+  # Print the last commit title & hash
+  last = --no-pager log -1 --oneline --color
+
+ ###########################################
+  # This much sugar may kill you
+  ###########################################
+  # Show which commits are safe to amend/rebase
+  # unpushed = log @{u}..
+  # Show what you've done since yesterday to prepare your standup
+  standup = log --since yesterday --author $(git config user.email) --pretty=short
+  # Show the history difference between a local branche and its remote
+  divergence = log --left-right --graph --cherry-pick --oneline $1...origin/$1
+  # Quickly solve conflicts using an editor and then add the conflicted files
+  edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; vim `f`"
+  add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
+
+  # From comments
+  # amen = !git commit --amend && git push -f
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
