@@ -8,7 +8,9 @@ colorscheme solarized
 
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
+set shiftwidth=4    " when indenting with '>', use 4 spaces width
 set expandtab       " tabs are spaces
+filetype plugin indent on
 
 " UI Config
 set number              " show line numbers
