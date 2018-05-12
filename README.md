@@ -3,7 +3,7 @@ Host dotfiles / config files for my UNIX machine. Modified from
 [Atlassian and Hacker News](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/) to
 work with submodules in github (Oh My Zsh, vim plugins, ..)
 
-Initial setup:
+## Initial setup
 ```
 git init --bare $HOME/.cfg
 echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.zshrc
@@ -19,8 +19,18 @@ config commit -m 'added zshrc'
 config remote set-url origin git@github.com:mazzma12/dotfiles.git
 config push
 ```
+## Add submodule
 
-On a new computer:
+For example to add vim extensions or oh-my-zsh.
+Adding a folder recursively that contains git repositories (submodules) will not work. After adding all submodules/plugins we need, we can pull them all at once. The dotfiles repo then needs to be cloned with the `--recursive` option, or we can run `git submodule update --init` as above.
+
+```
+cd ~/.vim/bundle
+config submodule add https://github.com/tpope/vim-repeat
+config submodule foreach git pull
+```
+## Setup new machine
+
 ```
 # locally
 ssh-copy-id user@host
@@ -57,10 +67,3 @@ sudo apt-get install tmux-next=2.3~20161117~bzr3621+20-1ubuntu1~ppa0~ubuntu14.04
 sudo locale-gen "en_US.UTF-8"
 ```
 
-### Managing plugins with pathogen and tmux plugin manager
-To install a plugin, we need to tell git that it is a submodule. Adding a folder recursively that contains git repositories (submodules) will not work. After adding all submodules/plugins we need, we can pull them all at once. The dotfiles repo then needs to be cloned with the `--recursive` option, or we can run `git submodule update --init` as above.
-```
-cd ~/.vim/bundle
-config submodule add https://github.com/tpope/vim-repeat
-config submodule foreach git pull
-```
