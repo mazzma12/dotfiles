@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<gconf>
-	<entry name="rename_current_tab" mtime="1523611942" type="string">
-		<stringvalue>&lt;Primary&gt;&lt;Shift&gt;F2</stringvalue>
-	</entry>
-</gconf>
