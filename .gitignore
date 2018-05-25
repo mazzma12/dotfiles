@@ -8,6 +8,9 @@
 *~
 *.swp
 .env
-
+# Pycharm
+.idea
+.DS_Store
+tags
 # Yourself
 .cfg/
