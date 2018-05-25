@@ -29,28 +29,14 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='vim' # Setting nano default
 fi
+# https://unix.stackexchange.com/a/113768/268905
+# TMUX
+if which tmux >/dev/null 2>&1; then
+    # if no session is started, start a new session
+    test -z ${TMUX} && tmux
 
-# from coderwall.com
-if [[ "$TERM" != "screen" ]] &&
-        [[ "$SSH_CONNECTION" == "" ]]; then
-    # Attempt to discover a detached session and attach
-    # it, else create a new session
-
-    WHOAMI=$(whoami)
-    if tmux has-session -t $WHOAMI 2>/dev/null; then
-        tmux -2 attach-session -t $WHOAMI
-    else
-        tmux -2 new-session -s $WHOAMI
-    fi
-else
-
-    # One might want to do other things in this case,
-    # here I print my motd, but only on servers where
-    # one exists
-
-    # If inside tmux session then print MOTD
-    MOTD=/etc/motd.tcl
-    if [ -f $MOTD ]; then
-        $MOTD
-    fi
+    # when quitting tmux, try to attach
+    while test -z ${TMUX}; do
+        tmux attach || break
+    done
 fi
