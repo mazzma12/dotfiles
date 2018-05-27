@@ -174,3 +174,7 @@ bindsym XF86AudioMute exec pactl set-sink-volume 1 0 # mute sound
 
 # Lock
 bindsym Control+$mod+l exec "$HOME/.config/i3lock/lock.sh"
+
+# Move
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
