@@ -19,7 +19,8 @@
 [core]
 
   excludesfile = ~/.gitignore_global
-#  attributesfile = /Users/matthieu/.gitattributes
+  attributesfile = ~/.gitattributes
+
 [alias]
   ## From coderwall : https://coderwall.com/p/euwpig/a-better-git-log
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
