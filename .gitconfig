@@ -74,3 +74,10 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+
+[filter "jupyter_clear_output"]
+    clean = "jupyter nbconvert --stdin --stdout --log-level=ERROR \
+             --to notebook --ClearOutputPreprocessor.enabled=True"
+    smudge = cat
+    required = true
+
