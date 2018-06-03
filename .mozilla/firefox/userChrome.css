@@ -1,0 +1,20 @@
+/* Firefox config file shall be placed in .mozilla/.firefox/idSession.default/chrome/ */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#titlebar {
+      visibility: collapse;
+  }
+
+/* to hide the native tabs */
+#TabsToolbar {
+        visibility: collapse;
+    }
+
+/* to hide the sidebar header */
+#sidebar-header {
+        visibility: collapse;
+    }
+/* full screen toolbars */
+#navigator-toolbox[inFullscreen] toolbar:not([collapsed="true"]) {
+       visibility:visible!important;
+   }
