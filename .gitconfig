@@ -19,7 +19,7 @@
 [core]
 
   excludesfile = ~/.gitignore_global
-  attributesfile = ~/.gitattributes
+  attributesfile = ~/.gitattributes_global
 
 [alias]
   ## From coderwall : https://coderwall.com/p/euwpig/a-better-git-log
