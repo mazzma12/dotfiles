@@ -65,5 +65,7 @@ sudo apt-get update && sudo apt-get upgrade
 lsb_release -a  # then follow: https://gist.github.com/P7h/91e14096374075f5316e
 sudo apt-get install tmux-next=2.3~20161117~bzr3621+20-1ubuntu1~ppa0~ubuntu14.04.1	# get this from https://launchpad.net/~pi-rho/+archive/ubuntu/dev
 sudo locale-gen "en_US.UTF-8"
+# Install jq to filter ipynb files with git
+sudo apt-get install jq
 ```
 
