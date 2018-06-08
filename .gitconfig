@@ -19,12 +19,23 @@
 [core]
 
   excludesfile = ~/.gitignore_global
-  attributesfile = ~/.gitattributes
+  attributesfile = ~/.gitattributes_global
+
+
+[filter "clean_ipynb"]
+  clean = "jq --indent 1 \
+          '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
+          | (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
+          | .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
+          | .cells[].metadata = {} \
+          '"
+  smudge = cat
+  required = true
 
 [alias]
   ## From coderwall : https://coderwall.com/p/euwpig/a-better-git-log
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  
+
   ###########################################
   # The essentials
   ###########################################
@@ -74,3 +85,9 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+
+[filter "jupyter_clear_output"]
+    clean = "jupyter nbconvert --stdin --stdout --log-level=ERROR \
+             --to notebook --ClearOutputPreprocessor.enabled=True"
+    smudge = cat
+    required = true
