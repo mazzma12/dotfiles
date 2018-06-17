@@ -1,7 +1,10 @@
 " Run PATHOGEN modules
 execute pathogen#infect()
+call pathogen#helptags() " generate helptags for everything in ‘runtimepath’
 
 " colorscheme solarized
+let g:airline_solarized_bg='dark'
+let g:airline_theme='solarized'
 colorscheme flattened_dark
 
 " Space and tabs : https://dougblack.io/words/a-good-vimrc.html
@@ -26,11 +29,15 @@ augroup END
 " UI Config
 set number              " show line numbers
 set showcmd             " show command in bottom bar
-set cursorline          " highlight current line
+set cursorline
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " highlight matching [{()}]
 
+" Color the column number 121 differently
+let &colorcolumn=121
+
 " To jump back to where you last were when editing the file
+
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
