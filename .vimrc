@@ -14,6 +14,9 @@ set shiftwidth=4    " when indenting with '>', use 4 spaces width
 set expandtab       " tabs are spaces
 filetype plugin indent on
 
+" Keep 10 lines above and below cursor to keep it centered vertically
+set scrolloff=10
+
 " Line number column on the left
 " Taken from https://jeffkreeftmeijer.com/vim-number/
 set number relativenumber
@@ -42,3 +45,6 @@ nnoremap gV `[v`]
 
 " jk is escape
 inoremap jk <esc>
+
+" Map ; to : to avoid pressing shift to enter command mode
+map ; :
