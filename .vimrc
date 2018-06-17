@@ -7,12 +7,21 @@ let g:solarized_termtrans=1
 set background=dark
 colorscheme solarized
 
+" Space and tabs : https://dougblack.io/words/a-good-vimrc.html
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4    " when indenting with '>', use 4 spaces width
 set expandtab       " tabs are spaces
 filetype plugin indent on
 
+" Line number column on the left
+" Taken from https://jeffkreeftmeijer.com/vim-number/
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 " UI Config
 set number              " show line numbers
 set showcmd             " show command in bottom bar
