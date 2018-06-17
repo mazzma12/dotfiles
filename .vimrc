@@ -1,11 +1,8 @@
 " Run PATHOGEN modules
 execute pathogen#infect()
 
-" Add background theme
-syntax enable
-let g:solarized_termtrans=1
-set background=dark
-colorscheme solarized
+" colorscheme solarized
+colorscheme flattened_dark
 
 " Space and tabs : https://dougblack.io/words/a-good-vimrc.html
 set tabstop=4       " number of visual spaces per TAB
