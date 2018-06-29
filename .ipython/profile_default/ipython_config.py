@@ -125,11 +125,6 @@ c.InteractiveShellApp.exec_lines.append('print("Warning: disable autoreload in i
 # TerminalIPythonApp(BaseIPythonApplication,InteractiveShellApp) configuration
 #------------------------------------------------------------------------------
 
-# From https://github.com/samwhitehall/ipython-bell/
-c.TerminalIPythonApp.extensions = [
-                    'ipython_bell'
-                    ]
-
 ## Whether to display a banner upon starting IPython.
 #c.TerminalIPythonApp.display_banner = True
 
