@@ -1,7 +1,7 @@
 # dotfiles
 Host dotfiles / config files for my UNIX machine. Modified from 
 [Atlassian and Hacker News](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/) to
-work with submodules in github (Oh My Zsh, vim plugins, ..)
+work with Oh My Zsh as a submodule. Vim plugins are now no longer submodules and are handled by VimPlug.
 
 ## Initial setup
 ```
