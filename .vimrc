@@ -15,6 +15,15 @@ Plug 'ervandew/supertab'
 Plug 'tomtom/tcomment_vim'
 call plug#end()
 
+" Abbreviations
+abbr funciton function
+abbr teh the
+abbr tempalte template
+abbr fitler filter
+abbr cosnt const
+abbr attribtue attribute
+abbr attribuet attribute
+
 " colorscheme solarized
 let g:airline_solarized_bg='dark'
 let g:airline_theme='solarized'
