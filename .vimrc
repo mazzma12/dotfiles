@@ -10,6 +10,9 @@ Plug 'romainl/vim-cool'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'davidhalter/jedi-vim'
+Plug 'ervandew/supertab'
+Plug 'tomtom/tcomment_vim'
 call plug#end()
 
 " colorscheme solarized
@@ -69,3 +72,6 @@ inoremap jk <esc>
 
 " Map ; to : to avoid pressing shift to enter command mode
 map ; :
+
+" Jedi configuration
+let g:jedi#popup_on_dot = 0 " Do not jedi autocomplete when a dot is typed 
