@@ -1,6 +1,16 @@
-" Run PATHOGEN modules
-execute pathogen#infect()
-call pathogen#helptags() " generate helptags for everything in ‘runtimepath’
+" https://github.com/junegunn/vim-plug
+if empty(glob('$HOME/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+Plug 'romainl/vim-cool'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+call plug#end()
 
 " colorscheme solarized
 let g:airline_solarized_bg='dark'
