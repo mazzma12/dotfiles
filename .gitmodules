@@ -1,15 +1,3 @@
-[submodule ".vim/bundle/vim-surround"]
-	path = .vim/bundle/vim-surround
-	url = https://github.com/tpope/vim-surround
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = git@github.com:mazzma12/oh-my-zsh.git
-[submodule ".vim/bundle/vim-airline"]
-	path = .vim/bundle/vim-airline
-	url = git@github.com:vim-airline/vim-airline.git
-[submodule ".vim/bundle/vim-airline-themes"]
-	path = .vim/bundle/vim-airline-themes
-	url = git@github.com:vim-airline/vim-airline-themes.git
-[submodule ".vim/bundle/vim-cool"]
-	path = .vim/bundle/vim-cool
-	url = git@github.com:romainl/vim-cool.git
