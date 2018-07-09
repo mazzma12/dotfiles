@@ -17,3 +17,4 @@ autocmd OptionSet guicursor noautocmd set guicursor=
 
 let g:python3_host_prog = '/home/matthieu/Envs/neovim/bin/python'
 let g:virtualenv_auto_activate = 1
+let g:loaded_python_provider = 1
