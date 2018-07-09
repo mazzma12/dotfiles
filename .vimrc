@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 Plug 'tomtom/tcomment_vim'
+Plug 'romainl/flattened' " For colorscheme
 call plug#end()
 
 " Abbreviations
