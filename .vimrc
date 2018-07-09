@@ -55,7 +55,6 @@ set showcmd             " show command in bottom bar
 set cursorline
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " highlight matching [{()}]
-
 " Color the column number 121 differently
 let &colorcolumn=121
 

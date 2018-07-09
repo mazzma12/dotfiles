@@ -1,10 +1,3 @@
-" Buggy escape character in terminal emulator
-" https://github.com/neovim/neovim/issues/6041
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
-set guicursor="$NVIM_TUI_ENABLE_CURSOR_SHAPE"
-
-" https://vi.stackexchange.com/a/15548
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
 source ~/.vimrc
 
@@ -12,3 +5,9 @@ call plug#begin()
 Plug 'w0rp/ale'
 call plug#end()
 
+
+" Might solve weird esccape char ; also set TERM=screen-256colors
+" https://github.com/neovim/neovim/wiki/FAQ#nvim-shows-weird-symbols-2-q-when-changing-modes
+set guicursor=
+" Workaround some broken plugins which set guicursor indiscriminately.
+autocmd OptionSet guicursor noautocmd set guicursor=
