@@ -51,6 +51,7 @@
   # The command line sugar
   ###########################################
 
+  wip = !git add -u && git commit -m "WIP"
   # Pop your last commit out of the history! No change lost, just unindexed
   pop = reset HEAD^
   # Fix your last commit without prompting an editor
@@ -78,7 +79,7 @@
   add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
 
   # From comments
-  # amen = !git commit --amend && git push -f
+  amen = !git commit --amend --no-edit && gp --force-with-lease
 
 [filter "lfs"]
 	required = true
