@@ -11,6 +11,32 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+# ZPlug
+# Check if zplug is installed
+if [[ ! -d ~/.zplug ]]; then
+    git clone https://github.com/zplug/zplug ~/.zplug
+    source ~/.zplug/init.zsh && zplug update --self
+fi
+
+source ~/.zplug/init.zsh
+
+zplug "plugins/git",   from:oh-my-zsh
+zplug "supercrabtree/k", as:plugin
+zplug "plugins/z",   from:oh-my-zsh
+zplug "plugins/zsh-docker-aliases",   from:oh-my-zsh
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
+
 plugins=(git k docker zsh-docker-aliases z)
 
 source $ZSH/oh-my-zsh.sh
@@ -41,27 +67,3 @@ if which tmux >/dev/null 2>&1; then
     done
 fi
 
-# ZPlug
-# Check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-    git clone https://github.com/zplug/zplug ~/.zplug
-    source ~/.zplug/init.zsh && zplug update --self
-fi
-
-source ~/.zplug/init.zsh
-
-zplug "plugins/git",   from:oh-my-zsh
-zplug "supercrabtree/k", as:plugin
-zplug "plugins/z",   from:oh-my-zsh
-zplug "plugins/zsh-docker-aliases",   from:oh-my-zsh
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load --verbose
