@@ -3,8 +3,10 @@ Host dotfiles / config files for my UNIX machine. Modified from
 [Atlassian and Hacker News](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/) to
 work with Oh My Zsh as a submodule. Vim plugins are now no longer submodules and are handled by VimPlug.
 
-## Initial setup
-```
+## First install
+
+ 
+```bash
 git init --bare $HOME/.cfg
 echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.zshrc
 source /.zshrc
@@ -13,7 +15,7 @@ config config --local status.showUntrackedFiles no
 ```
 
 Then to add stuff, we can do:
-```
+```bash
 config add .zshrc
 config commit -m 'added zshrc'
 config remote set-url origin git@github.com:mazzma12/dotfiles.git
@@ -21,17 +23,24 @@ config push
 ```
 ## Add submodule
 
+### NEW 
+
+Modules from Vim and Zsh are handled by a powerful asynchronous plugin manager. No need to use a submodule anymore.
+
+### OLD
+
 For example to add vim extensions or oh-my-zsh.
 Adding a folder recursively that contains git repositories (submodules) will not work. After adding all submodules/plugins we need, we can pull them all at once. The dotfiles repo then needs to be cloned with the `--recursive` option, or we can run `git submodule update --init` as above.
 
-```
+```bash
 cd ~/.vim/bundle
 config submodule add https://github.com/tpope/vim-repeat
 config submodule foreach git pull
 ```
+
 ## Setup new machine
 
-```
+```bash
 # locally
 ssh-copy-id user@host
 # install zsh and other things
