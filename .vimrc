@@ -14,6 +14,11 @@ Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 Plug 'tomtom/tcomment_vim'
 Plug 'romainl/flattened' " For colorscheme
+" if has('nvim')
+"     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"     Plug 'zchee/deoplete-jedi'
+"     let g:deoplete#enable_at_startup = 1
+" endif
 call plug#end()
 
 " Abbreviations
@@ -84,3 +89,7 @@ map ; :
 
 " Jedi configuration
 let g:jedi#popup_on_dot = 0 " Do not jedi autocomplete when a dot is typed 
+let g:python3_host_prog = $WORKON_HOME.'/neovim/bin/python'
+let g:virtualenv_auto_activate = 1
+let g:loaded_python_provider = 1
+
