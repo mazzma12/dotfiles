@@ -7,6 +7,7 @@ call plug#begin('$HOME/.vim/plugged')
 source ~/.vimrc
 
 " nvim plugins
+Plug 'w0rp/ale'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
@@ -18,6 +19,7 @@ set guicursor=
 " Workaround some broken plugins which set guicursor indiscriminately.
 autocmd OptionSet guicursor noautocmd set guicursor=
 
+" From https://raw.githubusercontent.com/fisadev/fisa-nvim-config/master/init.vim
 " Deoplete -----------------------------
 
 " Use deoplete.
@@ -28,8 +30,14 @@ let g:deoplete#enable_smart_case = 1
 " complete with words from any opened file
 let g:context_filetype#same_filetypes = {}
 let g:context_filetype#same_filetypes._ = '_'
+let g:deoplete#sources#jedi#show_docstring = 1
 
 " Jedi-vim ------------------------------
 
 " Disable autocompletion (using deoplete instead)
 let g:jedi#completions_enabled = 0
+
+" ALE ------------------------------
+let g:ale_echo_msg_format = '(%linter%) [%code%] %s'
+let g:ale_linters = {'python': ['pycodestyle', 'pylint']}
+

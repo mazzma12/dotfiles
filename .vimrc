@@ -82,9 +82,20 @@ inoremap jk <esc>
 " Map ; to : to avoid pressing shift to enter command mode
 map ; :
 
+" Airline configuration
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+
 " Jedi configuration
 let g:jedi#popup_on_dot = 0 " Do not jedi autocomplete when a dot is typed 
 let g:python3_host_prog = $WORKON_HOME.'/neovim/bin/python'
 let g:virtualenv_auto_activate = 1
 let g:loaded_python_provider = 1
-
+let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
