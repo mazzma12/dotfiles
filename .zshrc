@@ -12,6 +12,11 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
+# Source before zplug
+source $ZSH/oh-my-zsh.sh
+source $(which virtualenvwrapper.sh)
+
+
 # ZPlug
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
@@ -38,9 +43,6 @@ fi
 zplug load --verbose
 
 plugins=(git k docker zsh-docker-aliases z)
-
-source $ZSH/oh-my-zsh.sh
-source $(which virtualenvwrapper.sh)
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
