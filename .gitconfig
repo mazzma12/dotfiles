@@ -79,7 +79,7 @@
   add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
 
   # From comments
-  amen = !git commit --amend --no-edit && gp --force-with-lease
+  amen = !git commit --amend --no-edit && git push --force-with-lease origin HEAD
 
 [filter "lfs"]
 	required = true
