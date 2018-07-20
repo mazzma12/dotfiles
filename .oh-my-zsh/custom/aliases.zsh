@@ -4,7 +4,6 @@
 # script, in alphabetical order.
 
 # Config 
-export EDITOR='vi'
 alias zshconfig="$EDITOR ~/.zshrc"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ae="$EDITOR $ZSH_CUSTOM/aliases.zsh"

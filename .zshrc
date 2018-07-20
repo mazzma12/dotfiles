@@ -1,4 +1,4 @@
-export ZSH=$HOME/.oh-my-zsh  # Update to use with oh my zsh
+export ZSH=$HOME/.oh-my-zsh  
 
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -37,7 +37,15 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
-# plugins=(git k docker zsh-docker-aliases z)
+
+# Preferred editor 
+if which nvim >/dev/null 2>&1; then
+  export EDITOR='nvim'
+  alias vi='nvim'
+else
+  export EDITOR='vi' 
+fi
+
 
 source $ZSH/oh-my-zsh.sh
 source $(which virtualenvwrapper.sh)
@@ -50,12 +58,6 @@ if [[ -a ~/.localrc ]]; then
   source ~/.localrc
 fi
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim' # Setting nano default
-fi
 # https://unix.stackexchange.com/a/113768/268905
 # TMUX
 if which tmux >/dev/null 2>&1; then
