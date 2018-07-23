@@ -76,9 +76,10 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 
 " Motion
-" move vertically by visual line
-nnoremap j gj
-nnoremap k gk
+" move vertically by visual line https://stackoverflow.com/questions/20975928/moving-the-cursor-through-long-soft-wrapped-lines-in-vim/21000307#21000307
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
 " highlight last inserted text
 nnoremap gV `[v`]
 
