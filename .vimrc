@@ -16,6 +16,12 @@ Plug 'tomtom/tcomment_vim'
 Plug 'romainl/flattened' " For colorscheme
 call plug#end()
 
+" exec python 
+noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
+set clipboard=unnamed
+nnoremap <buffer> <F9> :w<CR>:exec '!python' shellescape(@%, 1)<cr>
+
+
 " Abbreviations
 abbr funciton function
 abbr teh the
