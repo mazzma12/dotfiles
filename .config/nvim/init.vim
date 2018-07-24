@@ -39,5 +39,7 @@ let g:jedi#completions_enabled = 0
 
 " ALE ------------------------------
 let g:ale_echo_msg_format = '(%linter%) [%code%] %s'
-let g:ale_linters = {'python': ['pycodestyle', 'pylint']}
-
+let g:ale_linters = {'python': ['flake8']}
+let g:ale_fixers = ['yapf', 'autopep8']
+let g:ale_fix_on_save = 1
+map <C-A-L> :ALEFix <CR>
