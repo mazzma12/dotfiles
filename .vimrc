@@ -36,6 +36,10 @@ set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4    " when indenting with '>', use 4 spaces width
 set expandtab       " tabs are spaces
 filetype plugin indent on
+set foldmethod=indent " https://stackoverflow.com/questions/357785/what-is-the-recommended-way-to-use-vim-folding-for-python-code
+" set foldnestmax=2
+nnoremap <space> za
+vnoremap <space> zf
 
 " Keep 10 lines above and below cursor to keep it centered vertically
 set scrolloff=10
@@ -85,7 +89,6 @@ map ; :
 " Airline configuration
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ale#enabled = 1
 
 " Jedi configuration
 let g:jedi#popup_on_dot = 0 " Do not jedi autocomplete when a dot is typed 

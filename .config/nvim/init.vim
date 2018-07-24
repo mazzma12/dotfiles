@@ -37,9 +37,14 @@ let g:deoplete#sources#jedi#show_docstring = 1
 " Disable autocompletion (using deoplete instead)
 let g:jedi#completions_enabled = 0
 
+" Airline -----------------------------
+let g:airline#extensions#ale#enabled = 1
+
 " ALE ------------------------------
 let g:ale_echo_msg_format = '(%linter%) [%code%] %s'
 let g:ale_linters = {'python': ['flake8']}
-let g:ale_fixers = ['yapf', 'autopep8']
+let g:ale_fixers = ['autopep8', 'yapf']
 let g:ale_fix_on_save = 1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 map <C-A-L> :ALEFix <CR>
