@@ -32,20 +32,12 @@ abbr cosnt const
 abbr attribtue attribute
 abbr attribuet attribute
 
+filetype plugin indent on
+
 " colorscheme solarized
 let g:airline_solarized_bg='dark'
 let g:airline_theme='solarized'
 colorscheme flattened_dark
-
-" Space and tabs : https://dougblack.io/words/a-good-vimrc.html
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " when indenting with '>', use 4 spaces width
-set expandtab       " tabs are spaces
-filetype plugin indent on
-
-" Keep 10 lines above and below cursor to keep it centered vertically
-set scrolloff=10
 
 " Line number column on the left
 " Taken from https://jeffkreeftmeijer.com/vim-number/
@@ -125,7 +117,6 @@ map ; :
 " Airline configuration
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ale#enabled = 1
 
 " Jedi configuration
 let g:jedi#popup_on_dot = 0 " Do not jedi autocomplete when a dot is typed 
