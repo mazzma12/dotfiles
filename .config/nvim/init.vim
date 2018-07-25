@@ -45,6 +45,7 @@ let g:ale_echo_msg_format = '(%linter%) [%code%] %s'
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_fixers = ['autopep8', 'yapf']
 let g:ale_fix_on_save = 1
+let g:ale_virtualenv_dir_names=[$WORKON_HOME."/neovim"]
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 map <C-A-L> :ALEFix <CR>
