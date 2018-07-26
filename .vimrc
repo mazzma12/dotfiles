@@ -36,7 +36,8 @@ filetype plugin indent on
 set tabstop=2       " number of visual spaces per TAB
 set softtabstop=2   " number of spaces in tab when editing
 set shiftwidth=2    " when indenting with '>', use 4 spaces width
-
+set smarttab
+set backspace=indent,eol,start
 " colorscheme solarized
 let g:airline_solarized_bg='dark'
 let g:airline_theme='solarized'
@@ -70,6 +71,10 @@ endif
 " Searching
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
 
 " Motion
 
@@ -133,3 +138,9 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
+
+" Sensible vim
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
+  set t_Co=16
+endif
