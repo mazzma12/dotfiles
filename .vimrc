@@ -33,6 +33,9 @@ abbr attribtue attribute
 abbr attribuet attribute
 
 filetype plugin indent on
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set shiftwidth=2    " when indenting with '>', use 4 spaces width
 
 " colorscheme solarized
 let g:airline_solarized_bg='dark'
