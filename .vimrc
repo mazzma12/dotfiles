@@ -41,7 +41,7 @@ set backspace=indent,eol,start
 " colorscheme solarized
 let g:airline_solarized_bg='dark'
 let g:airline_theme='solarized'
-colorscheme flattened_dark
+silent! colorscheme flattened_dark
 
 " Line number column on the left
 " Taken from https://jeffkreeftmeijer.com/vim-number/
