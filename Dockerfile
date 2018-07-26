@@ -4,8 +4,5 @@ ENV MAIN_PKGS "git vim neovim curl"
 
 RUN apk update; \
     apk --update --no-cache add ${MAIN_PKGS} && \
-		git clone --bare https://github.com/mazzma12/dotfiles.git $HOME/.cfg && \
-		/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout -- && \
-		nvim +slient +VimEnter +PlugInstall +qall > /dev/null 
-
+		/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/mazzma12/dotfiles/master/install.sh)"
 ENTRYPOINT /bin/sh
