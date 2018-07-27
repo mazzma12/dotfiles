@@ -121,6 +121,7 @@ inoremap jk <esc>
 
 " Map ; to : to avoid pressing shift to enter command mode
 map ; :
+let mapleader = ","
 
 " Airline configuration
 let g:airline_powerline_fonts = 1
