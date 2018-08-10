@@ -1,26 +1,45 @@
 import cufflinks
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import (
-        scale,
-        StandardScaler,
-        MinMaxScaler)
+from sklearn.ensemble import (
+        AdaBoostClassifier,
+        GradientBoostingRegressor,
+        RandomForestClassifier,
+        )
+from sklearn.feature_selection import (
+        RFECV,
+        )
 from sklearn.linear_model import (
+        ElasticNet,
+        ElasticNetCV,
+        SGDClassifier,
+        SGDRegressor,
         Lasso,
         LassoCV,
         LinearRegression,
         HuberRegressor,
         Ridge,
         RidgeCV,
-        ElasticNet
         )
 from sklearn.metrics import (
+        accuracy_score,
+        confusion_matrix,
+        homogeneity_score,
         mean_absolute_error,
         mean_squared_error,
-        accuracy_score,
-        homogeneity_score,
-        roc_auc_score
+        roc_auc_score,
         )
-from sklearn.feature_selection import RFECV
-from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import (
+        TimeSeriesSplit,
+        GridSearchCV
+)
+from sklearn.pipeline import (
+        make_pipeline,
+        Pipeline
+        )
+from sklearn.preprocessing import (
+        PolynomialFeatures,
+        StandardScaler,
+        MinMaxScaler
+        )
 from tqdm import tqdm
