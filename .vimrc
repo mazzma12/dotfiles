@@ -24,6 +24,7 @@ nnoremap <buffer> <F9> :w<CR>:exec '!python' shellescape(@%, 1)<cr>
 
 
 " Abbreviations
+abbr flaot float
 abbr funciton function
 abbr teh the
 abbr tempalte template

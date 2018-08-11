@@ -1,6 +1,11 @@
 import cufflinks
 import numpy as np
 import pandas as pd
+from sklearn.decomposition import (
+        TruncatedSVD,
+        PCA,
+        IncrementalPCA
+        )
 from sklearn.ensemble import (
         AdaBoostClassifier,
         GradientBoostingRegressor,
@@ -17,6 +22,8 @@ from sklearn.linear_model import (
         Lasso,
         LassoCV,
         LinearRegression,
+        LogisticRegression,
+        LogisticRegressionCV,
         HuberRegressor,
         Ridge,
         RidgeCV,
@@ -31,6 +38,8 @@ from sklearn.metrics import (
         )
 from sklearn.model_selection import (
         TimeSeriesSplit,
+        StratifiedKFold,
+        train_test_split,
         GridSearchCV
 )
 from sklearn.pipeline import (
@@ -38,8 +47,10 @@ from sklearn.pipeline import (
         Pipeline
         )
 from sklearn.preprocessing import (
+        FunctionTransformer,
         PolynomialFeatures,
         StandardScaler,
-        MinMaxScaler
+        MinMaxScaler,
+        LabelEncoder,
         )
 from tqdm import tqdm
