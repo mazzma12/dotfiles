@@ -217,3 +217,7 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Shift+e mode "$mode_system"
+
+# https://unix.stackexchange.com/a/426787/268905
+exec_always --no-startup-id xmodmap -e "clear lock"
+exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
