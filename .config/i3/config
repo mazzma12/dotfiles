@@ -179,7 +179,7 @@ bar {
 set $scrot_path $HOME/Pictures/screenshots
 bindsym --release Print exec "scrot -m $scrot_path/%s_%H%M_%d.%m.%Y_$wx$h.png"
 bindsym --release Shift+Print exec "scrot -s $scrot_path/%s_%H%M_%d%m%Y_$wx$h.png"
-bindsym --release $mod+Shift+Print exec "scrot -u -d 4 $scrot_path/%s_%H%M_%d%m%Y_$wx$h.png"
+bindsym --release $mod+Shift+Print exec scrot -s -e 'xclip -selection clipboard -t "image/png" < $f'
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% #increase sound volume
@@ -221,3 +221,4 @@ bindsym $mod+Shift+e mode "$mode_system"
 # https://unix.stackexchange.com/a/426787/268905
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+# exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
