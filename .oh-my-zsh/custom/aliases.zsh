@@ -33,7 +33,8 @@ vman() { /usr/bin/man $* | col -b | vim -c 'set ft=man nomod nolist' -c 'nmap q 
 alias man='vman'
 
 # Python
-alias jn='jupyter notebook --NotebookApp.iopub_data_rate_limit=2147483647 --NotebookApp.iopub_msg_rate_limit=2147483647'
+alias jn='jupyter notebook'
+alias jnroot="jupyter notebook --allow-root --NotebookApp.token='' --no-browser --port=8889 --ip=0.0.0.0"
 alias sparkconfig="sudo nano /opt/spark/conf/spark-env.sh"
 alias watch_nvidia='watch -d -n 1 nvidia-smi'
 alias clean_ipynb="jq --indent 1 \
