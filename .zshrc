@@ -32,6 +32,7 @@ zplug "plugins/git",   from:oh-my-zsh
 zplug "supercrabtree/k", as:plugin
 zplug "plugins/z",   from:oh-my-zsh
 zplug "plugins/zsh-docker-aliases",   from:oh-my-zsh
+zplug "plugins/docker-compose",   from:oh-my-zsh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
