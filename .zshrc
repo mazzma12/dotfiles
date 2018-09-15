@@ -30,8 +30,9 @@ source ~/.zplug/init.zsh
 
 zplug "plugins/git",   from:oh-my-zsh
 zplug "supercrabtree/k", as:plugin
+zplug "akarzim/zsh-docker-aliases", as:plugin
 zplug "plugins/z",   from:oh-my-zsh
-zplug "plugins/zsh-docker-aliases",   from:oh-my-zsh
+zplug "plugins/docker",   from:oh-my-zsh
 zplug "plugins/docker-compose",   from:oh-my-zsh
 
 # Install plugins if there are plugins that have not been installed
