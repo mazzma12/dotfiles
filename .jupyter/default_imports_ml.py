@@ -1,4 +1,4 @@
-import cufflinks
+import cufflinks as cf
 import numpy as np
 import pandas as pd
 from sklearn.cluster import (
@@ -61,3 +61,5 @@ from sklearn.preprocessing import (
     LabelEncoder,
 )
 from tqdm import tqdm
+
+cf.go_offline()
