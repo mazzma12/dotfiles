@@ -21,6 +21,10 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# set PATH so it includes --user install if folder exists 
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 # Preferred editor 
 if which nvim >/dev/null 2>&1; then
   export EDITOR='nvim'
