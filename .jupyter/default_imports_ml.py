@@ -63,3 +63,4 @@ from sklearn.preprocessing import (
 from tqdm import tqdm
 
 cf.go_offline()
+np.random.seed(42)
