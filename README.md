@@ -1,10 +1,9 @@
 # Dotfiles
 Host config files for UNIX machines. The versioning system uses a git bare repository system as recommended in  
-[Atlassian and Hacker News](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
+[Atlassian and Hacker News](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/)
 
-## Create the dotfiles repository
-
-Only do it once -follow the article
+## Create dotfiles repository
+Only do it once -follow the article...
 
 ## Setup new machine
  
@@ -62,7 +61,6 @@ sudo apt-get install tmux-next=2.3~20161117~bzr3621+20-1ubuntu1~ppa0~ubuntu14.04
 ## First setup
 
 As in the article
-
 ```bash
 git init --bare $HOME/.cfg
 echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.zshrc
