@@ -2,7 +2,7 @@
 Host config files for UNIX machines. The versioning system uses a git bare repository system as recommended in  
 [Atlassian and Hacker News](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/)
 
-## Create dotfiles repository
+## Init dotfiles repository
 Only do it once -follow the article...
 
 ## Setup new machine
@@ -47,14 +47,13 @@ config checkout .
 config config --local status.showUntrackedFiles no
 ```
 
-## Optional deps
+## Optional 
 
 ```bash
 # Filter to clean jupyter notebook metadata
 sudo apt install jq
 
-# Latest tmux
-lsb_release -a  # then follow: https://gist.github.com/P7h/91e14096374075f5316e
+# Latest tmux follow: https://gist.github.com/P7h/91e14096374075f5316e
 sudo apt-get install tmux-next=2.3~20161117~bzr3621+20-1ubuntu1~ppa0~ubuntu14.04.1	# get this from https://launchpad.net/~pi-rho/+archive/ubuntu/dev
 ```
 
@@ -76,5 +75,3 @@ config commit -m 'Add zsh config'
 config remote set-url origin git@github.com:mazzma12/dotfiles.git
 config push
 ```
-
-
