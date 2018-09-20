@@ -1,22 +1,3 @@
-" https://github.com/junegunn/vim-plug
-if empty(glob('$HOME/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin()
-Plug 'romainl/vim-cool'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'davidhalter/jedi-vim'
-Plug 'ervandew/supertab'
-Plug 'tomtom/tcomment_vim'
-Plug 'romainl/flattened' " For colorscheme
-Plug 'christoomey/vim-sort-motion'
-call plug#end()
-
 " exec python 
 noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
 set clipboard=unnamed
@@ -39,10 +20,6 @@ set softtabstop=2   " number of spaces in tab when editing
 set shiftwidth=2    " when indenting with '>', use 4 spaces width
 set smarttab
 set backspace=indent,eol,start
-" colorscheme solarized
-let g:airline_solarized_bg='dark'
-let g:airline_theme='solarized'
-silent! colorscheme flattened_dark
 
 " Line number column on the left
 " Taken from https://jeffkreeftmeijer.com/vim-number/
@@ -124,10 +101,6 @@ inoremap jk <esc>
 map ; :
 let mapleader=","
 map ,t :tabnew <CR>
-
-" Airline configuration
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
 
 " Sensible vim
 " Allow color schemes to do bright colors without forcing bold.
