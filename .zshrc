@@ -14,6 +14,33 @@ if which tmux >/dev/null 2>&1; then
     test -z ${TMUX} && tmux
 fi
 
+# ZPlug
+# Check if zplug is installed
+if [[ ! -d ~/.zplug ]]; then
+    git clone https://github.com/zplug/zplug ~/.zplug
+    source ~/.zplug/init.zsh && zplug update --self
+fi
+
+source ~/.zplug/init.zsh
+
+zplug "plugins/git",   from:oh-my-zsh
+zplug "supercrabtree/k", as:plugin
+zplug "akarzim/zsh-docker-aliases", as:plugin
+zplug "plugins/z",   from:oh-my-zsh
+zplug "plugins/docker",   from:oh-my-zsh
+zplug "plugins/docker-compose",   from:oh-my-zsh
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
+
 # Preferred editor 
 if which nvim >/dev/null 2>&1; then
   export EDITOR='nvim'
