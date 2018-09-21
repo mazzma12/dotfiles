@@ -4,8 +4,6 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export LOGS_PATH=$HOME/logs/
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-xmodmap -e "clear lock"
-xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
 # ML
 export CUDA_HOME=/usr/local/cuda-8.1
