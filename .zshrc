@@ -21,12 +21,9 @@ if which nvim >/dev/null 2>&1; then
 else
   export EDITOR='vi' 
 fi
-if [[ -f $ZSH/oh-my-zsh.sh ]]; then
-  source $ZSH/oh-my-zsh.sh
-fi
-if [[ -f $(which virtualenvwrapper.sh) ]]; then
-  source $(which virtualenvwrapper.sh)
-fi
+
+source $ZSH/oh-my-zsh.sh
+source $(which virtualenvwrapper.sh)
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
