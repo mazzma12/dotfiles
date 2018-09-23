@@ -39,7 +39,7 @@ if ! zplug check --verbose; then
 fi
 
 # Then, source plugins and add commands to $PATH
-zplug load --verbose
+zplug load 
 
 # Preferred editor 
 if which nvim >/dev/null 2>&1; then
