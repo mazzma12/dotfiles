@@ -182,9 +182,9 @@ bindsym --release Shift+Print exec "scrot -s $scrot_path/%s_%H%M_%d%m%Y_$wx$h.pn
 bindsym --release $mod+Shift+Print exec scrot -s -e 'xclip -selection clipboard -t "image/png" < $f'
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-volume 1 0 # mute sound
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-volume @DEFAULT_SINK@ 0 # mute sound
 
 # Lock
 set $Locker $HOME/.config/i3lock/lock.sh
