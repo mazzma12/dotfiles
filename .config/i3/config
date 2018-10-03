@@ -203,7 +203,7 @@ exec --no-startup-id guake;
 exec --no-startup-id i3-msg "workspace $ws1; layout tabbed; exec firefox -new-window https://www.messenger.com/t/; exec /opt/telegram/telegram; exec slack";
 
 # Keyboard layout : https://unix.stackexchange.com/a/287009/268905
-exec --no-startup-id setxkbmap us -variant intl
+exec --no-startup-id setxkbmap us -variant altgr-intl
 
 # floating https://raw.githubusercontent.com/Airblader/dotfiles-manjaro/master/.i3/config
 for_window [class="(?i)blueman"] floating enable
