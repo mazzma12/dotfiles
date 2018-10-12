@@ -202,6 +202,10 @@ bindsym Mod1+Shift+Tab focus left
 exec --no-startup-id guake;
 exec --no-startup-id i3-msg "workspace $ws1; layout tabbed; exec firefox -new-window https://www.messenger.com/t/; exec /opt/telegram/telegram; exec slack";
 
+# Wallpapers 
+exec --no-startup-id $HOME/.config/i3/bg.sh 
+exec --no-startup-id feh --bg-fill --randomize ~/Pictures/wallpapers ~/Pictures/wallpapers/2560x1440
+
 # Keyboard layout : https://unix.stackexchange.com/a/287009/268905
 exec --no-startup-id setxkbmap us -variant altgr-intl
 
