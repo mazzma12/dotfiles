@@ -5,16 +5,15 @@ main(){
 
 	if [ -d $DOTFILES_HOME ]; then
 		printf "Dotfiles already installed.\n"
-		exit
 	fi
 	
-	if [[ -f $HOME/.zshrc ]]; then
-		printf "Moving old zsh config to .zshrc.bak"
+	if [ -f $HOME/.zshrc ]; then
+		printf "Moving old zsh config to .zshrc.bak.\n"
 		mv $HOME/.zshrc $HOME/.zshrc.bak
 	fi
 
-	if [[ -f $HOME/.profile ]]; then
-		printf "Moving old profile config to .profile.bak"
+	if [ -f $HOME/.profile ]; then
+		printf "Moving old profile config to .profile.bak\n"
 		mv $HOME/.profile $HOME/.profile.bak
 	fi
 
