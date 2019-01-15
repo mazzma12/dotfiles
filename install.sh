@@ -7,6 +7,16 @@ main(){
 		printf "Dotfiles already installed.\n"
 		exit
 	fi
+	
+	if [[ -f $HOME/.zshrc ]]; then
+		printf "Moving old zsh config to .zshrc.bak"
+		mv $HOME/.zshrc $HOME/.zshrc.bak
+	fi
+
+	if [[ -f $HOME/.profile ]]; then
+		printf "Moving old profile config to .profile.bak"
+		mv $HOME/.profile $HOME/.profile.bak
+	fi
 
 	git clone --bare https://github.com/mazzma12/dotfiles.git $DOTFILES_HOME && \
 	/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout -- ;
