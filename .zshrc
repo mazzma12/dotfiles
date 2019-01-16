@@ -7,13 +7,6 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-# TMUX
-# https://unix.stackexchange.com/a/113768/268905
-if which tmux >/dev/null 2>&1; then
-    # if no session is started, start a new session
-    test -z ${TMUX} && tmux
-fi
-
 # ZPlug
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
