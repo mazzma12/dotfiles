@@ -18,7 +18,9 @@ main(){
 	fi
 
 	git clone --bare https://github.com/mazzma12/dotfiles.git $DOTFILES_HOME && \
-	/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout -- ;
+	/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout -- && \
+	/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no;
+
 
 	if which nvim >/dev/null 2>&1; then
 		nvim +slient +VimEnter +PlugInstall +qall > /dev/null 
