@@ -55,7 +55,3 @@ if [[ -a ~/.localrc ]]; then
   source ~/.localrc
 fi
 
-# Change cap lock to Esc
-xmodmap -e "clear lock"
-xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-
