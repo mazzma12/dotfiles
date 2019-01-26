@@ -1,3 +1,26 @@
+# Dev Env
+export WORKON_HOME=~/Envs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export LOGS_PATH=$HOME/logs/
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# ML
+export CUDA_HOME=/usr/local/cuda-8.1
+export PATH=$CUDA_HOME/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64
+export DYLD_LIBRARY_PATH="$CUDA_HOME/lib64:$CUDA_HOME:$CUDA_HOME/extras/CUPTI/lib64"
+export SPARK_HOME=/opt/spark
+export GRADLE_HOME=/opt/gradle
+export PATH=/opt:$SPARK_HOME/bin:$GRADLE_HOME/bin:$PATH
+
+# System
+export ZSH_CUSTOM="$ZSH/custom"
+export HISTSIZE=100000           # Lots of history.
+export HISTFILESIZE=100000       # Lots of history in the file.
+export HISTCONTROL=ignoreboth    # Ignore entries with leading white space and dupes.
+export HISTIGNORE="ls:ll:cd:fg:j:jobs"   # Uninteresting commands to not record in history.
+export N_PROC="$(grep -c processor /proc/cpuinfo)"
 # You can put files here to add functionality separated per file, which
 # will be ignored by git.
 # Files on the custom/ directory will be automatically loaded by the init
@@ -6,8 +29,6 @@
 # Config 
 alias zshconfig="$EDITOR ~/.zshrc"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias ae="$EDITOR $ZSH_CUSTOM/aliases.zsh"
-alias enve="$EDITOR $ZSH_CUSTOM/env.zsh"
 alias ve="$EDITOR $HOME/.vimrc"
 alias nve="$EDITOR $HOME/.config/nvim/init.vim"
 
@@ -31,8 +52,8 @@ alias -g G='| grep' # now you can do: ls foo G something
 alias -g X='| xclip -sel c' # Pipe to clipboard
 alias o="xdg-open"
 # Use vim to display man 
-vman() { /usr/bin/man $* | col -b | vim -c 'set ft=man nomod nolist' -c 'nmap q :q<CR>' -; }
-alias man='vman'
+# vman() { /usr/bin/man $* | col -b | vim -c 'set ft=man nomod nolist' -c 'nmap q :q<CR>' -; }
+# alias man='vman'
 
 # Python
 alias jn='jupyter notebook'

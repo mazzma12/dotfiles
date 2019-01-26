@@ -23,9 +23,6 @@ Or see the Dockerfile at the root of this repository
 ```bash
 sudo apt-get install zsh zsh-completions && \
 		vim-gtk # For paste-bin support
-
-# Also add oh-my-zsh before to not have conflict
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
 ## Install repo

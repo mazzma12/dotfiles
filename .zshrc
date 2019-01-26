@@ -1,11 +1,4 @@
-export ZSH=$HOME/.oh-my-zsh  
-
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
 
 # TMUX
 # https://unix.stackexchange.com/a/113768/268905
@@ -48,11 +41,9 @@ if which nvim >/dev/null 2>&1; then
 else
   export EDITOR='vi' 
 fi
-if [[ -f $ZSH/oh-my-zsh.sh ]]; then
-  source $ZSH/oh-my-zsh.sh
-fi
-if [[ -f $(which virtualenvwrapper.sh) ]]; then
-  source $(which virtualenvwrapper.sh)
+
+if which virtualenvwrapper.sh>/dev/null 2>&1; then
+	source $(which virtualenvwrapper.sh)
 fi
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
