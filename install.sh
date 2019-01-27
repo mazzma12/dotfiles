@@ -24,8 +24,7 @@ main(){
 	function config {
 		/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 	}
-	config checkout 
-	if [ $? = 0 ]; then
+	if  config checkout ; then
 		echo "Checked out config.";
 	else
 		echo "Backing up pre-existing dot files to with .bak suffixes";
