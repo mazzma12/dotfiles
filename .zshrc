@@ -71,14 +71,6 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load 
 
-# Preferred editor 
-if which nvim >/dev/null 2>&1; then
-  export EDITOR='nvim'
-  alias vi='nvim'
-else
-  export EDITOR='vi' 
-fi
-
 if which virtualenvwrapper.sh>/dev/null 2>&1; then
 	source $(which virtualenvwrapper.sh)
 fi
@@ -89,7 +81,3 @@ fi
 if [[ -a ~/.localrc ]]; then
   source ~/.localrc
 fi
-
-# Change cap lock to Esc
-xmodmap -e "clear lock"
-xmodmap -e "keycode 66 = Escape NoSymbol Escape"
