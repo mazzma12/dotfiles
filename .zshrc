@@ -1,3 +1,40 @@
+# Lines configured by zsh-newuser-install
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=2000
+export SAVEHIST=$HISTSIZE
+setopt appendhistory autocd extendedglob
+unsetopt beep nomatch
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename "$HOME/.zshrc"
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+unsetopt menu_complete
+unsetopt flow_control
+setopt auto_menu
+setopt complete_in_word
+setopt always_to_end
+setopt inc_append_history
+setopt share_history
+
+zstyle ':completion:*:*:*:*:*' menu select
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+# Bindkey differs on Arch / Ubuntu https://unix.stackexchange.com/q/465266/268905
+bindkey '^[[A' up-line-or-beginning-search
+bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+bindkey "$terminfo[kcud1]" down-line-or-beginning-search
+
+PROMPT='%F{blue}%n%f%F{white}@%f%F{blue}%M%f %(?:%F{green}➜%f :%F{red}➜%f )%F{cyan}%~%f '
+
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # TMUX
@@ -56,4 +93,3 @@ fi
 # Change cap lock to Esc
 xmodmap -e "clear lock"
 xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-
