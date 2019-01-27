@@ -6,7 +6,8 @@ main(){
 	function config {
 		/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 	}
-	config ls-tree --full-tree -r --name-only HEAD | xargs -I{} sh -c "rm {}; echo Removing dotfile {}"
+	config ls-tree --full-tree -r --name-only HEAD | xargs -I{} sh -c "rm {}; echo Removing dotfile {}; \
+		if [ -f {}.bak ]; then mv {}.bak {}; fi"
 	rm -Ir $DOTFILES_HOME
 }
 main
