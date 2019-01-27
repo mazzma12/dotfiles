@@ -15,10 +15,10 @@ main(){
 		/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 	}
 	if  config checkout ; then
-		echo "Checked out config.";
+		echo "Checked out config without conflicts.";
 	else
-		echo "Backing up pre-existing dot files to with .bak suffixes";
-		config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv -i {} {}.bak
+		echo "Conflict with existing dotfiles. Backing up with .bak suffixes";
+		config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv -vi {} {}.bak
 	fi;
 	config checkout
 	config config status.showUntrackedFiles no
