@@ -209,7 +209,7 @@ exec --no-startup-id $HOME/.config/i3/bg.sh
 exec --no-startup-id feh --bg-fill --randomize ~/Pictures/wallpapers ~/Pictures/wallpapers/2560x1440
 
 # Keyboard layout : https://unix.stackexchange.com/a/287009/268905
-exec --no-startup-id setxkbmap us -variant altgr-intl
+# exec --no-startup-id setxkbmap us -variant altgr-intl
 
 # floating https://raw.githubusercontent.com/Airblader/dotfiles-manjaro/master/.i3/config
 for_window [class="(?i)blueman"] floating enable
