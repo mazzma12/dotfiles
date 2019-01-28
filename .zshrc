@@ -1,3 +1,39 @@
+# ZPlug
+if [[ ! -d ~/.zplug ]]; then
+		# Check if zplug is installed
+    git clone https://github.com/zplug/zplug ~/.zplug
+    source ~/.zplug/init.zsh && zplug update --self
+fi
+
+source ~/.zplug/init.zsh
+
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "plugins/git",   from:oh-my-zsh
+zplug "plugins/z",   from:oh-my-zsh
+zplug "plugins/docker",   from:oh-my-zsh
+zplug "plugins/docker-compose",   from:oh-my-zsh
+zplug "lib/completion", from:oh-my-zsh
+zplug "lib/git", from:oh-my-zsh
+zplug "lib/key-bindings", from:oh-my-zsh
+zplug "lib/completion", from:oh-my-zsh
+zplug "supercrabtree/k", as:plugin
+zplug "akarzim/zsh-docker-aliases", as:plugin
+zplug "olivierverdier/zsh-git-prompt", as:plugin, use:"zshrc.sh"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+export PURE_GIT_PULL=0
+zplug load 
+
 # Lines configured by zsh-newuser-install
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=2000
@@ -34,7 +70,7 @@ bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 
-PROMPT='%F{blue}%n%f%F{white}@%f%F{blue}%M%f %(?:%F{green}➜%f :%F{red}➜%f )%F{cyan}%~%f '
+#PROMPT='%F{blue}%n%f%F{white}@%f%F{blue}%M%f %(?:%F{green}➜%f :%F{red}➜%f )%F{cyan}%~%f$(git_super_status)'
 
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -44,33 +80,6 @@ if which tmux >/dev/null 2>&1; then
     # if no session is started, start a new session
     test -z ${TMUX} && tmux
 fi
-
-# ZPlug
-# Check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-    git clone https://github.com/zplug/zplug ~/.zplug
-    source ~/.zplug/init.zsh && zplug update --self
-fi
-
-source ~/.zplug/init.zsh
-
-zplug "plugins/git",   from:oh-my-zsh
-zplug "supercrabtree/k", as:plugin
-zplug "akarzim/zsh-docker-aliases", as:plugin
-zplug "plugins/z",   from:oh-my-zsh
-zplug "plugins/docker",   from:oh-my-zsh
-zplug "plugins/docker-compose",   from:oh-my-zsh
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load 
 
 if which virtualenvwrapper.sh>/dev/null 2>&1; then
 	source $(which virtualenvwrapper.sh)
