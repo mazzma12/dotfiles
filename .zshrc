@@ -22,6 +22,7 @@ setopt inc_append_history
 setopt share_history
 
 zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*:*:*:*:processes' command "ps -o pid,user,comm -w -w"
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
