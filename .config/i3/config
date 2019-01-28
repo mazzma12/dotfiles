@@ -201,7 +201,8 @@ bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
 
 # Workspace
-exec --no-startup-id guake;
+bindsym Control+space exec --no-startup-id /usr/bin/xfce4-terminal --drop-down;
+bindsym Control+Shift+space exec --no-startup-id /usr/bin/xfce4-terminal;
 exec --no-startup-id i3-msg "workspace $ws1; layout tabbed; exec firefox -new-window https://www.messenger.com/t/; exec /opt/telegram/telegram; exec slack";
 
 # Wallpapers 
