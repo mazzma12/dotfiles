@@ -1,3 +1,2 @@
-# Change cap lock to Esc
 clear lock
 keycode 66 = Escape NoSymbol Escape
