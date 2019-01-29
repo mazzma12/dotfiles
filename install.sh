@@ -1,15 +1,15 @@
 #!/bin/sh
 main(){
 	set -e;
-	export DOTFILES_HOME="$HOME/.cfg"
-	export branch=${1:-master}
+	export dotfiles_home=${DOTFILES_HOME:-$HOME/.cfg}
+	export branch=${DOTFILE_BRANCH:-master}
 	echo "Cloning from branch: $branch"
 
-	if [ -d $DOTFILES_HOME ]; then
+	if [ -d $dotfiles_home ]; then
 		printf "Dotfiles already installed.\n"
 	fi
 	
-	git clone --bare https://github.com/mazzma12/dotfiles.git --branch $branch $DOTFILES_HOME 
+	git clone --bare https://github.com/mazzma12/dotfiles.git --branch $branch $dotfiles_home 
 
 	function config {
 		/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
