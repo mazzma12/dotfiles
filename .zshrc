@@ -15,11 +15,14 @@ zplug "lib/completion", from:oh-my-zsh
 zplug "lib/git", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
 zplug "lib/completion", from:oh-my-zsh
+zplug "lib/termsupport", from:oh-my-zsh
+zplug "lib/theme-and-appearance", from:oh-my-zsh
 zplug "supercrabtree/k", as:plugin
 zplug "akarzim/zsh-docker-aliases", as:plugin
 zplug "olivierverdier/zsh-git-prompt", as:plugin, use:"zshrc.sh"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "mafredri/zsh-async", from:github
+#zplug "dfurnes/purer", use:pure.zsh, from:github, as:theme
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -73,13 +76,6 @@ bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# TMUX
-# https://unix.stackexchange.com/a/113768/268905
-if which tmux >/dev/null 2>&1; then
-    # if no session is started, start a new session
-    test -z ${TMUX} && tmux
-fi
-
 if which virtualenvwrapper.sh>/dev/null 2>&1; then
 	source $(which virtualenvwrapper.sh)
 fi
@@ -89,4 +85,19 @@ fi
 # you'll have access to them in your scripts.
 if [[ -a ~/.localrc ]]; then
   source ~/.localrc
+fi
+
+if [ "$COLORTERM" = "gnome-terminal" ] || [ "$COLORTERM" = "xfce4-terminal" ]
+then
+    export TERM=xterm-256color
+elif [ "$COLORTERM" = "rxvt-xpm" ]
+then
+    export TERM=rxvt-256color
+fi
+
+# TMUX
+# https://unix.stackexchange.com/a/113768/268905
+if which tmux >/dev/null 2>&1; then
+    # if no session is started, start a new session
+    test -z ${TMUX} && tmux
 fi
