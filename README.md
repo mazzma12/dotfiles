@@ -27,11 +27,21 @@ sudo apt-get install zsh zsh-completions && \
 
 ## Install repo
 
-Auto install 
+Auto install script from a specific branch. This will backup original config files if conflicts (suffix to `.bak`)  and checkout the bare repository.
+It comes along with `uninstall.sh` to restore all cofnig and delete the local bare repository.
+
+| branch | description |
+| ------ | ----------- |
+| master or *ubuntu* | For ubuntu 16.04 LTS machine | 
+| manjaro | For Arch base distro | 
+| pi | For raspberry pi *outdated* |
+| xless | For server config *outdated* | 
+
 ```bash
+export DOTFILES_BRANCH="master" # Default branch to clone from
+export DOTFILES_HOME="$HOME/.cfg" # Default install directory
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mazzma12/dotfiles/master/install.sh)"
 ```
-
 Or DIY as in the article :
 ```bash
 # clone the repo
@@ -54,7 +64,7 @@ sudo apt install jq
 sudo apt-get install tmux-next=2.3~20161117~bzr3621+20-1ubuntu1~ppa0~ubuntu14.04.1	# get this from https://launchpad.net/~pi-rho/+archive/ubuntu/dev
 ```
 
-## First setup
+## Create the dotfiles repository
 
 As in the article
 ```bash
