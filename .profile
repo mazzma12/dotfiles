@@ -26,7 +26,8 @@ else
   export EDITOR='vi' 
 fi
 
-setxkbmap us -variant altgr-intl
+# Pref terminal
+export TERMINAL=xfce4-terminal
 
 # Arch defaults
 export QT_QPA_PLATFORMTHEME="qt5ct"

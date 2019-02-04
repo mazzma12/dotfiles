@@ -76,16 +76,9 @@ bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-if which virtualenvwrapper.sh>/dev/null 2>&1; then
-	source $(which virtualenvwrapper.sh)
-fi
-
-# Stash your environment variables in ~/.localrc. This means they'll stay out
-# of your main dotfiles repository (which may be public, like this one), but
-# you'll have access to them in your scripts.
-if [[ -a ~/.localrc ]]; then
-  source ~/.localrc
-fi
+# if which virtualenvwrapper.sh>/dev/null 2>&1; then
+# 	source $(which virtualenvwrapper.sh)
+# fi
 
 if [ "$COLORTERM" = "gnome-terminal" ] || [ "$COLORTERM" = "xfce4-terminal" ]
 then
@@ -101,3 +94,11 @@ if which tmux >/dev/null 2>&1; then
     # if no session is started, start a new session
     test -z ${TMUX} && tmux
 fi
+
+# Stash your environment variables in ~/.localrc. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+if [[ -a ~/.localrc ]]; then
+		source ~/.localrc
+fi
+

@@ -1,9 +1,10 @@
 # Dev Env
-export WORKON_HOME=~/Envs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export LOGS_PATH=$HOME/logs/
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export WORKON_HOME=$HOME/Envs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+if which virtualenvwrapper.sh>/dev/null 2>&1; then
+		source $(which virtualenvwrapper.sh)
+fi
 
 # ML
 export CUDA_HOME=/usr/local/cuda-8.1
@@ -31,7 +32,7 @@ alias zshconfig="$EDITOR ~/.zshrc"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ve="$EDITOR $HOME/.vimrc"
 alias nve="$EDITOR $HOME/.config/nvim/init.vim"
-
+alias i3e="$EDITOR $HOME/.config/i3/config"
 
 # System
 alias rm=trash
@@ -89,3 +90,6 @@ alias gac='git add -A && git commit -m'
 
 # Misc
 alias doumage="echo '¯\\_(ツ)_/¯'"
+
+
+
