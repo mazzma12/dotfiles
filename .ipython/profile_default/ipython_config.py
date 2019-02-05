@@ -31,7 +31,6 @@
 ## lines of code to run at IPython startup.
 ## From https://www.keybits.net/post/configure-autoreload-for-ipython/
 
-c.InteractiveShellApp.extensions = ['autoreload']
 c.InteractiveShellApp.exec_lines = ['%load_ext autoreload', '%autoreload 2']
 c.InteractiveShellApp.exec_lines.append('print("Warning: disable autoreload in ipython_config.py to improve performance.")')
 
