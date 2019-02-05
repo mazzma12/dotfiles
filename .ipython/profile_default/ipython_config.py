@@ -167,7 +167,7 @@ c.InteractiveShell.ast_node_interactivity = 'all'
 #c.InteractiveShell.automagic = True
 
 ## The part of the banner to be printed before the profile
-#c.InteractiveShell.banner1 = "Python 3.5.2 (default, Nov 23 2017, 16:37:01) \nType 'copyright', 'credits' or 'license' for more information\nIPython 6.1.0 -- An enhanced Interactive Python. Type '?' for help.\n"
+c.InteractiveShell.banner1 = "Python 3.5.2 (default, Nov 23 2017, 16:37:01) \n"
 
 ## The part of the banner to be printed after the profile
 #c.InteractiveShell.banner2 = ''
