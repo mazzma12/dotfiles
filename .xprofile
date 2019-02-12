@@ -1,0 +1,4 @@
+#!/bin/sh
+
+[ -f $HOME/.config/xrandr_layout.sh ] && . $HOME/.config/xrandr_layout.sh
+
