@@ -16,16 +16,7 @@ export GRADLE_HOME=/opt/gradle
 export PATH=/opt:$SPARK_HOME/bin:$GRADLE_HOME/bin:$PATH
 
 # System
-export ZSH_CUSTOM="$ZSH/custom"
-export HISTSIZE=100000           # Lots of history.
-export HISTFILESIZE=100000       # Lots of history in the file.
-export HISTCONTROL=ignoreboth    # Ignore entries with leading white space and dupes.
-export HISTIGNORE="ls:ll:cd:fg:j:jobs"   # Uninteresting commands to not record in history.
 export N_PROC="$(grep -c processor /proc/cpuinfo)"
-# You can put files here to add functionality separated per file, which
-# will be ignored by git.
-# Files on the custom/ directory will be automatically loaded by the init
-# script, in alphabetical order.
 
 # Config 
 alias zshconfig="$EDITOR ~/.zshrc"
