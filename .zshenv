@@ -22,6 +22,7 @@ export N_PROC="$(grep -c processor /proc/cpuinfo)"
 alias zshconfig="$EDITOR ~/.zshrc"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ve="$EDITOR $HOME/.vimrc"
+alias pve="$EDITOR $HOME/.vim/ftplugin/python.vim" # Python vim
 alias nve="$EDITOR $HOME/.config/nvim/init.vim"
 alias i3e="$EDITOR $HOME/.config/i3/config"
 

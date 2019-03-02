@@ -129,6 +129,7 @@ map ,t :tabnew <CR>
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
+let g:SuperTabDefaultCompletionType = "<c-n>"
 " Sensible vim
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
