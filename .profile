@@ -33,3 +33,11 @@ export TERMINAL=xfce4-terminal
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+
+if [ -n "$DISPLAY" ]; then
+	# Keyboard conf
+	setxkbmap us -variant altgr-intl
+	# Change cap lock to Esc
+	xmodmap -e "clear lock"
+	xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+fi

@@ -29,10 +29,3 @@ npm() {
     npm "$@"
 	}
 
-if [ -n "$DISPLAY" ]; then
-	# Keyboard conf
-	setxkbmap us -variant altgr-intl
-	# Change cap lock to Esc
-	xmodmap -e "clear lock"
-	xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-fi
