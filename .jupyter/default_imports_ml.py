@@ -67,3 +67,4 @@ from tqdm import tqdm_notebook as tqdm
 
 cf.go_offline()
 np.random.seed(42)
+sns.set()
