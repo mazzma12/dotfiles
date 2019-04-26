@@ -446,11 +446,13 @@ div#ipython-main-app.container {
  margin-right: auto;
  margin-left: auto;
 }
+/* From https://stackoverflow.com/a/35342269/7657658 */
 .container {
- width: 980px;
+ width: 70% !important;
  margin-right: auto;
  margin-left: auto;
 }
+
 div#menubar-container {
  width: 100%;
  width: 980px;
@@ -1460,6 +1462,7 @@ div.cell.selected {
  border: medium solid #262931;
  padding: 0px;
  border-radius: 3px;
+ border-left-width: 1px !important;
 }
 .edit_mode div.cell.selected {
  padding: 0px;
