@@ -6,3 +6,7 @@ if [ -n "$DISPLAY" ]; then
 	# Change cap lock to Esc
 	xmodmap $HOME/.Xmodmap
 fi
+
+if which virtualenvwrapper.sh>/dev/null 2>&1; then
+	source $(which virtualenvwrapper.sh)
+fi
