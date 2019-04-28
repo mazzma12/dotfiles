@@ -170,7 +170,7 @@ c.InteractiveShell.ast_node_interactivity = 'all'
 #c.InteractiveShell.automagic = True
 
 # The part of the banner to be printed before the profile
-e.InteractiveShell.banner1 = "{}\n".format(sys.version)
+c.InteractiveShell.banner1 = "{}\n".format(sys.version)
 
 # The part of the banner to be printed after the profile
 #c.InteractiveShell.banner2 = ''
