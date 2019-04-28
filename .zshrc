@@ -1,4 +1,4 @@
-zmodload zsh/zprof # top of your .zshrc file
+#zmodload zsh/zprof # top of your .zshrc file
 # ZPlug
 if [[ ! -d ~/.zplug ]]; then
 		# Check if zplug is installed
@@ -106,4 +106,4 @@ if which tmux >/dev/null 2>&1; then
     # if no session is started, start a new session
     test -z ${TMUX} && tmux
 fi
-zprof # bottom of .zshrc
+#zprof # bottom of .zshrc
