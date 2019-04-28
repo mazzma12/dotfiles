@@ -1,3 +1,4 @@
+zmodload zsh/zprof # top of your .zshrc file
 # ZPlug
 if [[ ! -d ~/.zplug ]]; then
 		# Check if zplug is installed
@@ -48,7 +49,12 @@ bindkey -e
 zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
-compinit
+# Source https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2308206
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+
+compinit -C
 # End of lines added by compinstall
 
 unsetopt menu_complete
@@ -101,3 +107,4 @@ if which tmux >/dev/null 2>&1; then
     # if no session is started, start a new session
     test -z ${TMUX} && tmux
 fi
+zprof # bottom of .zshrc
