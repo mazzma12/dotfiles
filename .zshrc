@@ -48,12 +48,15 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename "$HOME/.zshrc"
 
-autoload -Uz compinit
-# Source https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2308206
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
+# Fix slow init Source https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2308206
+setopt EXTENDEDGLOB
+for dump in $HOME/.zcompdump(#qN.m1); do
+	compinit
+	if [[ -s "$dump" && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
+		zcompile "$dump"
+	fi
 done
-
+unsetopt EXTENDEDGLOB
 compinit -C
 # End of lines added by compinstall
 
