@@ -39,4 +39,8 @@ DropdownHeight=55
 DropdownPosition=100
 DropdownWidth=99
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+MiscScrollAlternateScreen=TRUE
+DropdownKeepAbove=FALSE
+DropdownAlwaysShowTabs=FALSE
+DropdownToggleFocus=TRUE
 
