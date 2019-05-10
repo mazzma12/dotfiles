@@ -21,9 +21,14 @@ let g:jedi#goto_assignments_command="<leader>g"
 let g:jedi#goto_definitions_command=""
 let g:jedi#documentation_command="K"
 let g:jedi#usages_command="<leader>n"
-let g:jedi#completions_command="<C-Space>"
+let g:jedi#completions_command="<C>c"
 let g:jedi#rename_command="<leader>r"
+set omnifunc=jedi#completions
 
+" exec python 
+noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
+set clipboard=unnamed
+nnoremap <buffer> <F9> :w<CR>:exec '!python' shellescape(@%, 1)<cr>
 
 if has("nvim")
 	" From https://raw.githubusercontent.com/fisadev/fisa-nvim-config/master/init.vim
@@ -32,10 +37,10 @@ if has("nvim")
 	" Use deoplete.
 	let g:deoplete#enable_at_startup=1
 	let g:deoplete#enable_ignore_case=1
-	let g:deoplete#enable_smart_case=1
+	" let g:deoplete#enable_smart_case=1
 	" complete with words from any opened file
-	let g:context_filetype#same_filetypes={}
-	let g:context_filetype#same_filetypes._='_'
+	" let g:context_filetype#same_filetypes={}
+	" let g:context_filetype#same_filetypes._='_'
 	let g:deoplete#sources#jedi#show_docstring=1
 
 	" Jedi-vim ------------------------------

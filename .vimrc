@@ -17,12 +17,6 @@ Plug 'romainl/flattened' " For colorscheme
 Plug 'christoomey/vim-sort-motion'
 call plug#end()
 
-" exec python 
-noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
-set clipboard=unnamed
-nnoremap <buffer> <F9> :w<CR>:exec '!python' shellescape(@%, 1)<cr>
-
-
 " Abbreviations
 abbr flaot float
 abbr funciton function
@@ -34,6 +28,7 @@ abbr attribtue attribute
 abbr attribuet attribute
 
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 set tabstop=2       " number of visual spaces per TAB
 set softtabstop=2   " number of spaces in tab when editing
 set shiftwidth=2    " when indenting with '>', use 4 spaces width
@@ -130,6 +125,7 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 " Sensible vim
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
