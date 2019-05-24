@@ -8,6 +8,7 @@ from functools import partial
 from itertools import combinations, product
 import logging
 import os
+from pathlib import Path
 import sys
 import warnings
 
