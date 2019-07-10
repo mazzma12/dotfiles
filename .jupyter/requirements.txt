@@ -1,0 +1,5 @@
+ipykernel
+jupyter
+jupyterthemes
+jupyter_contrib_nbextensions
+notebook
