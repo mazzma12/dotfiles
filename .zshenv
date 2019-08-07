@@ -77,6 +77,8 @@ alias gp='git push origin HEAD' # Push branch with same name as local
 # Remove `+` and `-` from start of diff lines; just rely upon color.
 alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
 alias gac='git add -A && git commit -m'
+# Fix warnings
+export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 # Use `hub` as our git wrapper:
 #   http://defunkt.github.com/hub/
