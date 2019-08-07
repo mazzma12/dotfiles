@@ -203,10 +203,14 @@ bindsym Mod1+Shift+Tab focus left
 # Workspace
 bindsym Control+space exec --no-startup-id /usr/bin/xfce4-terminal --drop-down --fullscreen;
 bindsym Control+Shift+space exec --no-startup-id /usr/bin/xfce4-terminal;
-exec --no-startup-id i3-msg "workspace $ws1; layout tabbed; exec firefox -new-window https://www.messenger.com/t/; exec /opt/telegram/telegram; exec slack";
+exec --no-startup-id i3-msg "workspace $ws1; layout tabbed; exec firefox -new-window https://www.messenger.com/t/; exec /opt/telegram/telegram";
 
 # Compton
-exec --no-startup-id compton;
+exec --no-startup-id compton -b;
+exec --no-startup-id dunst &;
+
+# Autostart 
+exec --no-startup-id dex -a -e i3 -s $HOME/.config/autostart
 
 # Wallpapers 
 exec --no-startup-id $HOME/.config/i3/bg.sh 
