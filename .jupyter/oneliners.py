@@ -1,4 +1,5 @@
 # Convenient one liners from the standard library
+import datetime
 from collections import OrderedDict
 import logging
 
@@ -17,3 +18,7 @@ def sort_dict(d, reverse=False):
 
 def _join_suffix(*items, suffix=('x', 'y'), sep='_'):
     return [sep.join([it, ss]) for it in items for ss in suffix]
+
+
+def format_string_with_utc(s):
+    return '_'.join([datetime.datetime.utcnow().strftime("%Y%m%d%H%M%S"), s])
