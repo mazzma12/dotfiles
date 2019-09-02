@@ -91,7 +91,7 @@ bindsym $mod+Ctrl+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-# bindsym $mod+g fullscreen global
+bindsym $mod+g fullscreen global
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -199,6 +199,9 @@ bindsym Control+$mod+l exec "$Locker"
 # Move
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
+
+# Shortcuts
+bindsym $mod+n exec --no-startup-id nautilus 
 
 # Workspace
 bindsym Control+space exec --no-startup-id /usr/bin/xfce4-terminal --drop-down --fullscreen;
