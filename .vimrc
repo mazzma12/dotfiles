@@ -15,6 +15,7 @@ Plug 'ervandew/supertab'
 Plug 'tomtom/tcomment_vim'
 Plug 'romainl/flattened' " For colorscheme
 Plug 'christoomey/vim-sort-motion'
+Plug 'psf/black'
 call plug#end()
 
 " Abbreviations
@@ -37,6 +38,13 @@ set backspace=indent,eol,start
 " colorscheme solarized
 let g:airline_solarized_bg='dark'
 let g:airline_theme='solarized'
+" code completion SuperTab config
+let g:SuperTabDefaultCompletionType = "context"
+" instead of <c-p> as completion, which is backwards
+" let g:SuperTabContextDefaultCompletionType = "<c-n>"
+let g:SuperTabLongestEnhanced = 1
+let g:SuperTabDefaultCompletionType = ""
+" let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 silent! colorscheme flattened_dark
 
 " Line number column on the left
@@ -131,3 +139,6 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
+
+" Black autosave
+autocmd BufWritePre *.py execute ':Black'
