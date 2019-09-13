@@ -49,7 +49,7 @@ if has("nvim")
 	" ALE - -----------------------------
 	let g:ale_echo_msg_format='(%linter%) [%code%] %s'
 	let g:ale_linters={'python': ['flake8']}
-	let g:ale_fixers=['autopep8', 'yapf']
+	let g:ale_fixers=['black']
 	let g:ale_fix_on_save=1
 	let g:ale_virtualenv_dir_names=[$PYENV_ROOT."/versions/neovim"]
 endif
