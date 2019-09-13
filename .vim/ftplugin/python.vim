@@ -13,7 +13,7 @@ set scrolloff=10
 
 " Jedi configuration
 let g:jedi#popup_on_dot=0 " Do not jedi autocomplete when a dot is typed 
-let g:python3_host_prog=$WORKON_HOME.'/neovim/bin/python'
+let g:python3_host_prog=$PYENV_ROOT.'/versions/neovim/bin/python'
 let g:virtualenv_auto_activate=1
 let g:loaded_python_provider=1
 let g:jedi#goto_command="<leader>d"
@@ -51,5 +51,5 @@ if has("nvim")
 	let g:ale_linters={'python': ['flake8']}
 	let g:ale_fixers=['autopep8', 'yapf']
 	let g:ale_fix_on_save=1
-	let g:ale_virtualenv_dir_names=[$WORKON_HOME."/neovim"]
+	let g:ale_virtualenv_dir_names=[$PYENV_ROOT."/versions/neovim"]
 endif
