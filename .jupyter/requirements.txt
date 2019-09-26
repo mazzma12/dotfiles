@@ -1,7 +1,9 @@
+black
 ipykernel
 jupyter
 jupyterlab
 jupyterthemes
+jupyter-black
 jupyter_contrib_nbextensions
 jupyter_nbextensions_configurator
 notebook
