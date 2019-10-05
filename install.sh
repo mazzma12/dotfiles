@@ -21,7 +21,7 @@ main() {
 	else
 		echo "Conflict with existing dotfiles. Backing up with .bak suffixes";
 		# Grab conflicting filenames and move them to {}.bak
-		config checkout 2>&1 | egrep "\s" | awk {'print $1'} | xargs -I{} mv -v $HOME/{} $HOME/{}.bak
+		config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv -v $HOME/{} $HOME/{}.bak
 	fi;
 	config checkout
 	config config status.showUntrackedFiles no
