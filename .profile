@@ -26,3 +26,14 @@ else
   export EDITOR='vi' 
 fi
 
+if [ -n "$DISPLAY" ]; then
+	# Keyboard conf
+	setxkbmap us -variant altgr-intl
+	# Change cap lock to Esc
+	xmodmap $HOME/.Xmodmap
+fi
+
+# https://mywiki.wooledge.org/DotFiles
+if [ -n "$BASH" ] && [ -r ~/.bashrc ]; then
+    . ~/.bashrc
+fi

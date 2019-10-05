@@ -115,3 +115,71 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+if [ -d "$PYENV_ROOT" ] ; then
+    PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+		eval "$(pyenv virtualenv-init -)"
+		# Set simple prompt
+		export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+		pyenvVirtualenvUpdatePrompt() {
+				RED='\[\e[0;31m\]'
+				GREEN='\[\e[0;32m\]'
+				BLUE='\[\e[0;34m\]'
+				RESET='\[\e[0m\]'
+				[ -z "$PYENV_VIRTUALENV_ORIGINAL_PS1" ] && export PYENV_VIRTUALENV_ORIGINAL_PS1="$PS1"
+				[ -z "$PYENV_VIRTUALENV_GLOBAL_NAME" ] && export PYENV_VIRTUALENV_GLOBAL_NAME="$(pyenv global)"
+				VENV_NAME="$(pyenv version-name)"
+				VENV_NAME="${VENV_NAME##*/}"
+				GLOBAL_NAME="$PYENV_VIRTUALENV_GLOBAL_NAME"
+
+				# non-global versions:
+				COLOR="$BLUE"
+				# global version:
+				[ "$VENV_NAME" == "$GLOBAL_NAME" ] && COLOR="$RED"
+				# virtual envs:
+				[ "${VIRTUAL_ENV##*/}" == "$VENV_NAME" ] && COLOR="$GREEN"
+
+				if [ -z "$COLOR" ]; then
+						PS1="$PYENV_VIRTUALENV_ORIGINAL_PS1"
+				else
+						PS1="($COLOR${VENV_NAME}$RESET)$PYENV_VIRTUALENV_ORIGINAL_PS1"
+				fi
+				export PS1
+		}
+		export PROMPT_COMMAND="$PROMPT_COMMAND pyenvVirtualenvUpdatePrompt;"
+fi
+
+# https://broken-by.me/lazy-load-nvm/
+nvm() {
+    unset -f nvm
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    nvm "$@"
+}
+
+node() {
+    unset -f node
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    node "$@"
+}
+
+npm() {
+    unset -f npm
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    npm "$@"
+}
+
+# Extra config to emulate zsh completion
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+bind '"\e[Z":menu-complete-backward'
+# TMUX: open on shell login if not exists
+# https://unix.stackexchange.com/a/113768/268905
+if which tmux >/dev/null 2>&1; then
+    # if no session is started, start a new session
+    test -z ${TMUX} && tmux
+fi
