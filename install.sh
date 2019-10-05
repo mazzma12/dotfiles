@@ -2,7 +2,7 @@
 
 set -ex
 export dotfiles_home=${DOTFILES_HOME:-$HOME/.cfg}
-export branch=${DOTFILE_BRANCH:-master}
+export branch=${DOTFILES_BRANCH:-master}
 config() {
 	/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
