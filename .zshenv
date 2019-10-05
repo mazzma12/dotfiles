@@ -1,10 +1,3 @@
-# Dev Env
-export WORKON_HOME=~/Envs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export LOGS_PATH=$HOME/logs/
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # ML
 export CUDA_HOME=/usr/local/cuda-8.1
 export PATH=$CUDA_HOME/bin${PATH:+:${PATH}}
@@ -32,17 +25,14 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ve="$EDITOR $HOME/.vimrc"
 alias nve="$EDITOR $HOME/.config/nvim/init.vim"
 
-
 # System
 alias rm=trash
 alias ls='ls -hG --color=auto'
 alias lt='ls -ahlHt --color=auto'
 alias ll='ls -alhG --color=auto'
 alias lt='ls -t --color=auto'
-alias mvdl='ls -td -1 $HOME/Downloads/* | head -n 1 | xargs -I {} mv {} .'
+alias mvdl='ls -td -1 $HOME/Downloads/* | head -n 1 | xargs -I {} mv {} .' # Move Last Download
 alias my_ip="ip route get 8.8.8.8"
-alias reload!="source ~/.zshrc"
-alias psa="ps aux"
 alias -g C='| wc -l'
 alias -g H='| head'
 alias -g L="| less"
@@ -58,14 +48,9 @@ alias o="xdg-open"
 # Python
 alias jn='jupyter notebook'
 alias jnroot="jupyter notebook --allow-root --NotebookApp.token='' --no-browser --port=8889 --ip=0.0.0.0"
-alias sparkconfig="sudo nano /opt/spark/conf/spark-env.sh"
+alias sparkconfig="sudo $EDITOR /opt/spark/conf/spark-env.sh"
 alias watch_nvidia='watch -d -n 1 nvidia-smi'
-alias clean_ipynb="jq --indent 1 \
-    '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
-    | (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
-    | .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
-    | .cells[].metadata = {} \
-    '"
+
 # Docker
 alias db="docker build"
 alias dr="docker run"
@@ -80,15 +65,6 @@ alias gac='git add -A && git commit -m'
 # Fix warnings
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
-# Use `hub` as our git wrapper:
-#   http://defunkt.github.com/hub/
-# Interesting but need to hqve Go dev environment. Later
-#hub_path=$(which hub)
-#if (( $+commands[hub] ))
-#then
-#  alias git=$hub_path
-#fi
-
 # Jupyter
 clean_notebook () {
 	jq --indent 1 \
@@ -99,5 +75,16 @@ clean_notebook () {
     | .cells[].metadata = {}
     ' $1
 }
+
 # Misc
 alias doumage="echo '¯\\_(ツ)_/¯'"
+
+# Use `hub` as our git wrapper:
+#   http://defunkt.github.com/hub/
+# Interesting but need to hqve Go dev environment. Later
+#hub_path=$(which hub)
+#if (( $+commands[hub] ))
+#then
+#  alias git=$hub_path
+#fi
+
