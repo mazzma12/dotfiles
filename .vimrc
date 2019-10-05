@@ -15,7 +15,9 @@ Plug 'ervandew/supertab'
 Plug 'tomtom/tcomment_vim'
 Plug 'romainl/flattened' " For colorscheme
 Plug 'christoomey/vim-sort-motion'
-Plug 'psf/black'
+if has('pip')
+	Plug 'psf/black'
+endif
 call plug#end()
 
 " exec python 
