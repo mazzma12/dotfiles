@@ -7,9 +7,7 @@ config() {
 	/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
 
-
 main() {
-	set -e;
 	echo "Cloning from branch: $branch"
 
 	if [ -d $dotfiles_home ]; then
@@ -23,7 +21,7 @@ main() {
 	else
 		echo "Conflict with existing dotfiles. Backing up with .bak suffixes";
 		# Grab conflicting filenames and move them to {}.bak
-		config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv -vi {} {}.bak
+		config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv -v $HOME/{} $HOME/{}.bak
 	fi;
 	config checkout
 	config config status.showUntrackedFiles no
@@ -36,6 +34,7 @@ main() {
 		vim +slient +VimEnter +PlugInstall +qall > /dev/null 
 	fi
 }
+
 main
 
 

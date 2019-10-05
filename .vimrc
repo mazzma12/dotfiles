@@ -5,6 +5,11 @@ if empty(glob('$HOME/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
 call plug#begin()
 Plug 'romainl/vim-cool'
 Plug 'tpope/vim-surround'
@@ -15,8 +20,7 @@ Plug 'ervandew/supertab'
 Plug 'tomtom/tcomment_vim'
 Plug 'romainl/flattened' " For colorscheme
 Plug 'christoomey/vim-sort-motion'
-if has('pip')
-	Plug 'psf/black'
+Plug 'psf/black', Cond(has('pip'))
 endif
 call plug#end()
 
