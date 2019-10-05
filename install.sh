@@ -1,8 +1,15 @@
-#!/bin/sh
-main(){
+#!/bin/bash
+
+set -ex
+export dotfiles_home=${DOTFILES_HOME:-$HOME/.cfg}
+export branch=${DOTFILE_BRANCH:-master}
+config() {
+	/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+}
+
+
+main() {
 	set -e;
-	export dotfiles_home=${DOTFILES_HOME:-$HOME/.cfg}
-	export branch=${DOTFILE_BRANCH:-master}
 	echo "Cloning from branch: $branch"
 
 	if [ -d $dotfiles_home ]; then
@@ -11,13 +18,11 @@ main(){
 	
 	git clone --bare https://github.com/mazzma12/dotfiles.git --branch $branch $dotfiles_home 
 
-	function config {
-		/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
-	}
-	if  config checkout ; then
+	if config checkout; then
 		echo "Checked out config without conflicts.";
 	else
 		echo "Conflict with existing dotfiles. Backing up with .bak suffixes";
+		# Grab conflicting filenames and move them to {}.bak
 		config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv -vi {} {}.bak
 	fi;
 	config checkout
