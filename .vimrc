@@ -21,7 +21,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'romainl/flattened' " For colorscheme
 Plug 'christoomey/vim-sort-motion'
 Plug 'psf/black', Cond(has('pip'))
-endif
 call plug#end()
 
 " exec python 
