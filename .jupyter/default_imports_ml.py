@@ -1,6 +1,11 @@
-import cufflinks as cf
+#import cufflinks as cf
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import plotly
+import plotly.graph_objects as go
+import plotly.express as px
+import seaborn as sns
 from sklearn.cluster import (
     KMeans,
 )
@@ -60,7 +65,8 @@ from sklearn.preprocessing import (
     MinMaxScaler,
     LabelEncoder,
 )
-from tqdm import tqdm
+from tqdm import tqdm_notebook as tqdm
 
-cf.go_offline()
+# cf.go_offline()
 np.random.seed(42)
+sns.set()

@@ -1,0 +1,12 @@
+awscli
+awscli_plugin_endpoint
+black
+ipykernel
+ipywidgets
+jupyter
+jupyterlab
+jupyterthemes
+jupyter_contrib_nbextensions
+jupyter_nbextensions_configurator
+notebook
+widgetsnbextension
