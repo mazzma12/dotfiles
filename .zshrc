@@ -42,7 +42,7 @@ LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:c
 export LS_COLORS
 
 PROMPT='%F{blue}%n%f%F{white}@%f%F{blue}%M%f %(?:%F{green}➜%f :%F{red}➜%f )%F{cyan}%~%f '
-export PATH="/home/m.mazzolini/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
