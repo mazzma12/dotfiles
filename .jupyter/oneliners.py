@@ -13,18 +13,20 @@ def _join(*items):
 
 
 def sort_dict(d, reverse=False):
-return OrderedDict(
-    (sorted_key, d[sorted_key])
-    for sorted_key in sorted(d, key=d.get, reverse=reverse)
-)
+    return OrderedDict(
+        (sorted_key, d[sorted_key])
+        for sorted_key in sorted(d, key=d.get, reverse=reverse)
+    )
 
 
 def _join_suffix(*items, suffix=("x", "y"), sep="_"):
-return [sep.join([it, ss]) for it in items for ss in suffix]
+    return [sep.join([it, ss]) for it in items for ss in suffix]
 
 
 def format_string_with_utc(s):
-    return "_".join(filter(None, [datetime.datetime.utcnow().strftime("%Y%m%d%H%M%S"), s]))
+    return "_".join(
+        filter(None, [datetime.datetime.utcnow().strftime("%Y%m%d%H%M%S"), s])
+    )
 
 
 def chunk(list, size):
