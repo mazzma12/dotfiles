@@ -2,43 +2,24 @@
 Host config files for UNIX machines. The versioning system uses a git bare repository system as recommended in  
 [Atlassian and Hacker News](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/)
 
-## Init dotfiles repository
-Only do it once -follow the article...
+| branch | description |
+| ------ | ----------- |
+| master or *ubuntu* | For ubuntu 18.04 | 
+| manjaro | For Arch based distro | 
+| pi | For raspberry pi *outdated* |
+| xless | For server config *outdated* | 
 
 ## Setup new machine
- 
-### Requirements
 
-Main requirements includes : `git curl zsh zsh-completions vim neovim`
+Either use the installation script or a manual install as explained in the article. Note that the manual installation will conflict with existing dotfiles in your working space. The `install.sh` script  will back up conflicting files : `.zshrc` > `.zshrc.bak`
 
-#### Alpine
+**Recommended requirements:** `git curl zsh zsh-completions vim`
 
-```bash
-apk add --update --no-cache git vim neovim curl 
-```
-Or see the Dockerfile at the root of this repository
+### Manual install
 
-#### Ubuntu 
-
-```bash
-sudo apt-get install zsh zsh-completions && \
-		vim-gtk # For paste-bin support
-
-# Also add oh-my-zsh before to not have conflict
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-## Install repo
-
-Auto install 
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/mazzma12/dotfiles/master/install.sh)"
-```
-
-Or DIY as in the article :
 ```bash
 # clone the repo
-git clone --bare git@github.com:mazzma12/dotfiles.git $HOME/.cfg
+git clone --bare https://github.com/mazzma12/dotfiles.git $HOME/.cfg
 # add to zshrc or bashrc
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # add to gitignore
@@ -46,20 +27,27 @@ echo ".cfg" >> .gitignore
 config checkout .
 config config --local status.showUntrackedFiles no
 ```
+### Auto Install
 
-## Optional 
+Auto install script from a specific branch. This will backup original config files if conflicts (suffix to `.bak`)  and checkout the bare repository.
+It comes along with `uninstall.sh` to restore all config and delete the local bare repository.
 
 ```bash
-# Filter to clean jupyter notebook metadata
-sudo apt install jq
+export DOTFILES_BRANCH="master" # Default branch to clone from
+export DOTFILES_HOME="$HOME/.cfg" # Default install directory
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/mazzma12/dotfiles/master/install.sh)"
+```
 
+## Troubleshooting 
+
+```bash
 # Latest tmux follow: https://gist.github.com/P7h/91e14096374075f5316e
 sudo apt-get install tmux-next=2.3~20161117~bzr3621+20-1ubuntu1~ppa0~ubuntu14.04.1	# get this from https://launchpad.net/~pi-rho/+archive/ubuntu/dev
 ```
 
-## First setup
+## Create the dotfiles repository
 
-As in the article
+As in the article mentioned above:
 ```bash
 git init --bare $HOME/.cfg
 echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.zshrc

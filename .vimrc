@@ -5,6 +5,11 @@ if empty(glob('$HOME/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
 call plug#begin()
 Plug 'romainl/vim-cool'
 Plug 'tpope/vim-surround'
@@ -15,6 +20,7 @@ Plug 'ervandew/supertab'
 Plug 'tomtom/tcomment_vim'
 Plug 'romainl/flattened' " For colorscheme
 Plug 'christoomey/vim-sort-motion'
+Plug 'psf/black', Cond(has('pip'))
 call plug#end()
 
 " exec python 
@@ -42,6 +48,13 @@ set backspace=indent,eol,start
 " colorscheme solarized
 let g:airline_solarized_bg='dark'
 let g:airline_theme='solarized'
+" code completion SuperTab config
+let g:SuperTabDefaultCompletionType = "context"
+" instead of <c-p> as completion, which is backwards
+" let g:SuperTabContextDefaultCompletionType = "<c-n>"
+let g:SuperTabLongestEnhanced = 1
+let g:SuperTabDefaultCompletionType = ""
+" let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 silent! colorscheme flattened_dark
 
 " Line number column on the left
@@ -134,3 +147,6 @@ let g:airline#extensions#tabline#enabled=1
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
+
+" Black autosave
+autocmd BufWritePre *.py execute ':Black'

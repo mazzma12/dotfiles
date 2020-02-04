@@ -1,24 +1,30 @@
-#!/bin/sh
-main(){
-	set -e;
-	export DOTFILES_HOME="$HOME/.cfg"
+#!/bin/bash
 
-	if [ -d $DOTFILES_HOME ]; then
+set -ex
+export dotfiles_home=${DOTFILES_HOME:-$HOME/.cfg}
+export branch=${DOTFILES_BRANCH:-master}
+config() {
+	/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+}
+
+main() {
+	echo "Cloning from branch: $branch"
+
+	if [ -d $dotfiles_home ]; then
 		printf "Dotfiles already installed.\n"
 	fi
 	
-	if [ -f $HOME/.zshrc ]; then
-		printf "Moving old zsh config to .zshrc.bak.\n"
-		mv $HOME/.zshrc $HOME/.zshrc.bak
-	fi
+	git clone --bare https://github.com/mazzma12/dotfiles.git --branch $branch $dotfiles_home 
 
-	if [ -f $HOME/.profile ]; then
-		printf "Moving old profile config to .profile.bak\n"
-		mv $HOME/.profile $HOME/.profile.bak
-	fi
-
-	git clone --bare https://github.com/mazzma12/dotfiles.git $DOTFILES_HOME && \
-	/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout -- ;
+	if config checkout; then
+		echo "Checked out config without conflicts.";
+	else
+		echo "Conflict with existing dotfiles. Backing up with .bak suffixes";
+		# Grab conflicting filenames and move them to {}.bak
+		config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv -v $HOME/{} $HOME/{}.bak
+	fi;
+	config checkout
+	config config status.showUntrackedFiles no
 
 	if which nvim >/dev/null 2>&1; then
 		nvim +slient +VimEnter +PlugInstall +qall > /dev/null 
@@ -28,6 +34,7 @@ main(){
 		vim +slient +VimEnter +PlugInstall +qall > /dev/null 
 	fi
 }
+
 main
 
 

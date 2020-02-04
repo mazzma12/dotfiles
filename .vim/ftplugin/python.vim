@@ -13,7 +13,7 @@ set scrolloff=10
 
 " Jedi configuration
 let g:jedi#popup_on_dot=0 " Do not jedi autocomplete when a dot is typed 
-let g:python3_host_prog=$WORKON_HOME.'/neovim/bin/python'
+let g:python3_host_prog=$PYENV_ROOT.'/versions/neovim/bin/python'
 let g:virtualenv_auto_activate=1
 let g:loaded_python_provider=1
 let g:jedi#goto_command="<leader>d"
@@ -21,10 +21,10 @@ let g:jedi#goto_assignments_command="<leader>g"
 let g:jedi#goto_definitions_command=""
 let g:jedi#documentation_command="K"
 let g:jedi#usages_command="<leader>n"
-let g:jedi#completions_command="<C-Space>"
+let g:jedi#completions_command="<leader>v"
 let g:jedi#rename_command="<leader>r"
 
-
+set omnifunc=jedi#complete
 if has("nvim")
 	" From https://raw.githubusercontent.com/fisadev/fisa-nvim-config/master/init.vim
 	" Deoplete -----------------------------
@@ -49,7 +49,7 @@ if has("nvim")
 	" ALE - -----------------------------
 	let g:ale_echo_msg_format='(%linter%) [%code%] %s'
 	let g:ale_linters={'python': ['flake8']}
-	let g:ale_fixers=['autopep8', 'yapf']
+	let g:ale_fixers=['black']
 	let g:ale_fix_on_save=1
-	let g:ale_virtualenv_dir_names=[$WORKON_HOME."/neovim"]
+	let g:ale_virtualenv_dir_names=[$PYENV_ROOT."/versions/neovim"]
 endif

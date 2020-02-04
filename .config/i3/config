@@ -91,7 +91,7 @@ bindsym $mod+Ctrl+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-# bindsym $mod+g fullscreen global
+bindsym $mod+g fullscreen global
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -200,16 +200,27 @@ bindsym Control+$mod+l exec "$Locker"
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
 
+# Shortcuts
+bindsym $mod+n exec --no-startup-id nautilus 
+
 # Workspace
-exec --no-startup-id guake;
-exec --no-startup-id i3-msg "workspace $ws1; layout tabbed; exec firefox -new-window https://www.messenger.com/t/; exec /opt/telegram/telegram; exec slack";
+bindsym Control+space exec --no-startup-id /usr/bin/xfce4-terminal --drop-down --fullscreen;
+bindsym Control+Shift+space exec --no-startup-id /usr/bin/xfce4-terminal;
+exec --no-startup-id i3-msg "workspace $ws1; layout tabbed; exec firefox -new-window https://www.messenger.com/t/; exec /opt/telegram/telegram";
+
+# Compton
+exec --no-startup-id compton -b;
+exec --no-startup-id dunst &;
+
+# Autostart 
+exec --no-startup-id dex -a -e i3 -s $HOME/.config/autostart
 
 # Wallpapers 
 exec --no-startup-id $HOME/.config/i3/bg.sh 
 exec --no-startup-id feh --bg-fill --randomize ~/Pictures/wallpapers ~/Pictures/wallpapers/2560x1440
 
 # Keyboard layout : https://unix.stackexchange.com/a/287009/268905
-exec --no-startup-id setxkbmap us -variant altgr-intl
+# exec --no-startup-id setxkbmap us -variant altgr-intl
 
 # floating https://raw.githubusercontent.com/Airblader/dotfiles-manjaro/master/.i3/config
 for_window [class="(?i)blueman"] floating enable
@@ -231,7 +242,3 @@ mode "$mode_system" {
 
 bindsym $mod+Shift+e mode "$mode_system"
 
-# https://unix.stackexchange.com/a/426787/268905
-exec_always --no-startup-id xmodmap -e "clear lock"
-exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-# exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
