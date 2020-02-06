@@ -26,7 +26,6 @@ alias ve="$EDITOR $HOME/.vimrc"
 alias nve="$EDITOR $HOME/.config/nvim/init.vim"
 
 # System
-alias rm=trash
 alias ls='ls -hG --color=auto'
 alias lt='ls -ahlHt --color=auto'
 alias ll='ls -alhG --color=auto'
