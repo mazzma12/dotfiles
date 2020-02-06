@@ -46,6 +46,11 @@ alias o="xdg-open"
 
 # Python
 alias jn='jupyter notebook'
+open_notebook () {
+	        file=$(ls -rt $HOME/.local/share/jupyter/runtime/*.html | tail -n 1)
+					        cat $file | grep href= | cut -d'"' -f2
+								}
+
 alias jnroot="jupyter notebook --allow-root --NotebookApp.token='' --no-browser --port=8889 --ip=0.0.0.0"
 alias sparkconfig="sudo $EDITOR /opt/spark/conf/spark-env.sh"
 alias watch_nvidia='watch -d -n 1 nvidia-smi'
