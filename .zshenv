@@ -1,10 +1,6 @@
 # Dev Env
 export LOGS_PATH=$HOME/logs/
 export WORKON_HOME=$HOME/Envs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-if which virtualenvwrapper.sh>/dev/null 2>&1; then
-		source $(which virtualenvwrapper.sh)
-fi
 
 # ML
 export CUDA_HOME=/usr/local/cuda-8.1
