@@ -3,7 +3,7 @@ from collections import (
         defaultdict,
         OrderedDict,
         )
-from datetime import datetime, timedelta, timezone
+import datetime
 from functools import partial
 from itertools import combinations, product
 import logging
