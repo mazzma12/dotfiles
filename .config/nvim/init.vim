@@ -10,7 +10,6 @@ source ~/.vimrc
 Plug 'w0rp/ale'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-let g:deoplete#enable_at_startup = 1
 call plug#end()
 
 " Might solve weird esccape char ; also set TERM=screen-256colors
