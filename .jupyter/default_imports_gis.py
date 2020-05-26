@@ -10,4 +10,5 @@ import xarray as xr
 from descartes import PolygonPatch
 from rasterio.plot import show as rioshow
 from rasterio.plot import show_hist
+import seaborn as sns
 from tqdm.notebook import tqdm
