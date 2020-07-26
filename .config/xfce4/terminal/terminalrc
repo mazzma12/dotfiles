@@ -45,4 +45,6 @@ DropdownOpacity=91
 TabActivityTimeout=1
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ShortcutsNoHelpkey=TRUE
+MiscSearchDialogOpacity=100
+MiscShowUnsafePasteDialog=FALSE
 
