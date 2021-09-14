@@ -4,7 +4,7 @@ Host config files for UNIX machines. The versioning system uses a git bare repos
 
 | branch | description |
 | ------ | ----------- |
-| master or *ubuntu* | For ubuntu 18.04 | 
+| master or *ubuntu* | For ubuntu 20.04 | 
 | manjaro | For Arch based distro | 
 | pi | For raspberry pi *outdated* |
 | xless | For server config *outdated* | 
