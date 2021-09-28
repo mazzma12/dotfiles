@@ -37,3 +37,4 @@ fi
 if [ -n "$BASH" ] && [ -r ~/.bashrc ]; then
     . ~/.bashrc
 fi
+export GPG_TTY=$(tty)
