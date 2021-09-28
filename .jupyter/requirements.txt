@@ -4,6 +4,7 @@ black
 ipykernel
 ipywidgets
 jupyter
+jupyter-dash
 jupyterlab
 jupyterthemes
 jupyter_contrib_nbextensions
