@@ -132,6 +132,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 if [ -d "$PYENV_ROOT" ] ; then
     PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
 		eval "$(pyenv virtualenv-init -)"
 		# Set simple prompt
 		export PYENV_VIRTUALENV_DISABLE_PROMPT=1
@@ -220,7 +221,7 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 # Kube
 # source <(kubectl completion bash)
 
-# Disable ctrl-s terminal suspend 
+# Disable ctrl-s terminal suspend
 # https://www.digitalocean.com/community/tutorials/how-to-use-bash-history-commands-and-expansions-on-a-linux-vps
 stty -ixon
 
