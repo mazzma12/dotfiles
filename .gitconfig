@@ -86,3 +86,5 @@
              --to notebook --ClearOutputPreprocessor.enabled=True"
     smudge = cat
     required = true
+[init]
+    defaultBranch = master
