@@ -223,3 +223,5 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 # Disable ctrl-s terminal suspend 
 # https://www.digitalocean.com/community/tutorials/how-to-use-bash-history-commands-and-expansions-on-a-linux-vps
 stty -ixon
+
+complete -C /usr/bin/terraform terraform
