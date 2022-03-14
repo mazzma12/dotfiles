@@ -18,7 +18,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 reload(logging)
 logging.basicConfig(
     format="%(asctime)s %(levelname)s:%(message)s",
-    level=logging.DEBUG,
+    level=logging.WARN,
     datefmt="%I:%M:%S",
 )
 LOGGER = logging.getLogger(__name__)

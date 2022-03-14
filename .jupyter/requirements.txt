@@ -3,11 +3,15 @@ awscli_plugin_endpoint
 black
 ipykernel
 ipywidgets
+isort
 jupyter
 jupyter-dash
 jupyterlab
+juyterlab_code_formatter
 jupyterthemes
 jupyter_contrib_nbextensions
 jupyter_nbextensions_configurator
+jupytext
+nbconvert<6
 notebook
 widgetsnbextension
