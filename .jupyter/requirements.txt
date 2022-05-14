@@ -8,10 +8,12 @@ jupyter
 jupyter-dash
 jupyterlab
 juyterlab_code_formatter
+jupyterlab_execute_time
 jupyterthemes
 jupyter_contrib_nbextensions
 jupyter_nbextensions_configurator
 jupytext
 nbconvert<6
+nbpreview
 notebook
 widgetsnbextension
