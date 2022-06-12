@@ -226,3 +226,4 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 stty -ixon
 
 complete -C /usr/bin/terraform terraform
+. `which env_parallel.bash`

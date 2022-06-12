@@ -21,6 +21,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'romainl/flattened' " For colorscheme
 Plug 'christoomey/vim-sort-motion'
 Plug 'psf/black', Cond(has('pip'))
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " exec python 

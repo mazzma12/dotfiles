@@ -21,7 +21,8 @@ fi
 # Preferred editor 
 if which nvim >/dev/null 2>&1; then
   export EDITOR='nvim'
-  alias vi='nvim'
+  # For lazy loading
+  alias vi='nvm > /dev/null && nvim'
 else
   export EDITOR='vi' 
 fi
@@ -38,3 +39,26 @@ if [ -n "$BASH" ] && [ -r ~/.bashrc ]; then
     . ~/.bashrc
 fi
 export GPG_TTY=$(tty)
+
+# pip bash completion start
+_pip_completion()
+{
+    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   PIP_AUTO_COMPLETE=1 $1 2>/dev/null ) )
+}
+complete -o default -F _pip_completion $HOME/.pyenv/versions/neovim/bin/python -m pip
+# pip bash completion end
+
+
+# pip bash completion start
+_pip_completion()
+{
+    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   PIP_AUTO_COMPLETE=1 $1 2>/dev/null ) )
+}
+complete -o default -F _pip_completion $HOME/.pyenv/versions/kpi397/bin/python -m pip
+# pip bash completion end
+
+. `which env_parallel.pdksh`
