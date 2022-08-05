@@ -150,7 +150,7 @@
 #                        standard library module, which allows setting of the
 #                        BROWSER environment variable to override it.
 #  Default: ''
-# c.ServerApp.browser = '/usr/bin/firefox'
+c.ServerApp.browser = "/usr/bin/firefox"
 
 ## The full path to an SSL/TLS certificate file.
 #  Default: ''

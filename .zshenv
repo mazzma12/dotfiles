@@ -88,3 +88,4 @@ alias doumage="echo '¯\\_(ツ)_/¯'"
 #  alias git=$hub_path
 #fi
 
+. `which env_parallel.zsh`

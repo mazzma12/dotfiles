@@ -87,4 +87,4 @@
     smudge = cat
     required = true
 [init]
-    defaultBranch = master
+  defaultBranch = main
