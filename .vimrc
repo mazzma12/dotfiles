@@ -21,6 +21,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'romainl/flattened' " For colorscheme
 Plug 'christoomey/vim-sort-motion'
 Plug 'psf/black', Cond(has('pip'))
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " exec python 
@@ -43,6 +44,7 @@ filetype plugin indent on
 set tabstop=2       " number of visual spaces per TAB
 set softtabstop=2   " number of spaces in tab when editing
 set shiftwidth=2    " when indenting with '>', use 4 spaces width
+set expandtab       " tabs are spaces https://dougblack.io/words/a-good-vimrc.html
 set smarttab
 set backspace=indent,eol,start
 " colorscheme solarized

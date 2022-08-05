@@ -1,5 +1,5 @@
 " Space and tabs: https: // dougblack.io/words/a-good-vimrc.html
-set tabstop=4       " number of visual spaces per TAB
+set tabstop=8       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4    " when indenting with '>', use 4 spaces width
 set expandtab       " tabs are spaces

@@ -107,3 +107,6 @@ if which tmux >/dev/null 2>&1; then
     test -z ${TMUX} && tmux
 fi
 #zprof # bottom of .zshrc
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform

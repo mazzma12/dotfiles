@@ -1,0 +1,8 @@
+fastparquet
+matplotlib
+numba
+numpy
+pandas
+s3fs
+scikit-learn
+seaborn
