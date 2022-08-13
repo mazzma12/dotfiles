@@ -24,7 +24,7 @@ Plug 'psf/black', Cond(has('pip'))
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
-" exec python 
+" exec python
 noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
 set clipboard=unnamed
 nnoremap <buffer> <F9> :w<CR>:exec '!python' shellescape(@%, 1)<cr>
@@ -151,4 +151,9 @@ if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
 endif
 
 " Black autosave
-autocmd BufWritePre *.py execute ':Black'
+" let g:black_virtualenv=$PYENV_ROOT."/versions/neovim"
+let g:black_virtualenv=$PYENV_ROOT.'/versions/neovim/bin/black'
+" augroup black_on_save
+"   autocmd!
+"   autocmd BufWritePre *.py Black
+" augroup end
