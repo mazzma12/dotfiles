@@ -1,6 +1,5 @@
 # Convenient one liners from the standard library
 import datetime
-from collections import OrderedDict
 import logging
 
 
@@ -12,8 +11,8 @@ def _join(*items):
     return "_".join(map(str, items))
 
 
-def sort_dict(d, reverse=False):
-    return OrderedDict(
+def sort_dict(d: dict, reverse: bool = False) -> dict:
+    return dict(
         (sorted_key, d[sorted_key])
         for sorted_key in sorted(d, key=d.get, reverse=reverse)
     )
