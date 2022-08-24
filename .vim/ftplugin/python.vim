@@ -12,7 +12,7 @@ vnoremap <space> zf
 set scrolloff=10
 
 " Jedi configuration
-let g:jedi#popup_on_dot=0 " Do not jedi autocomplete when a dot is typed 
+let g:jedi#popup_on_dot=0 " Do not jedi autocomplete when a dot is typed
 let g:python3_host_prog=$PYENV_ROOT.'/versions/neovim/bin/python'
 let g:virtualenv_auto_activate=1
 let g:loaded_python_provider=1
@@ -49,6 +49,7 @@ if has("nvim")
 	" ALE - -----------------------------
 	let g:ale_echo_msg_format='(%linter%) [%code%] %s'
 	let g:ale_linters={'python': ['flake8']}
+	let g:ale_python_flake8_options = '--max-line-length=120'
 	let g:ale_fixers=['black']
 	let g:ale_fix_on_save=1
 	let g:ale_virtualenv_dir_names=[$PYENV_ROOT."/versions/neovim"]
