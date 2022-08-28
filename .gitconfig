@@ -80,6 +80,8 @@
 
   # From comments
   amen = !git commit --amend --no-edit && git push --force-with-lease origin HEAD
+  # List all branches and sort them by commit date
+  br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
 
 [filter "jupyter_clear_output"]
     clean = "jupyter nbconvert --stdin --stdout --log-level=ERROR \
