@@ -1,3 +1,4 @@
+alias c=clear
 # ----------------------
 # Git Aliases
 # ----------------------
@@ -37,9 +38,8 @@ alias gstp='git stash pop'
 alias gsts='git stash save'
 alias gcp='git cherry-pick'
 
-alias c=clear
-
 # setup autocompletion
+# https://stackoverflow.com/a/52169814/7657658
 if [ -f "/usr/share/bash-completion/completions/git" ]; then
   source /usr/share/bash-completion/completions/git
   __git_complete gc _git_commit
