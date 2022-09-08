@@ -1005,7 +1005,7 @@
 #       Disabling this setting to False will disable this behavior, allowing the browser
 #       to launch by using a URL and visible token (as before).
 #  Default: True
-# c.ServerApp.use_redirect_file = True
+c.ServerApp.use_redirect_file = False
 
 ## Specify where to open the server on startup. This is the
 #          `new` argument passed to the standard library method `webbrowser.open`.
