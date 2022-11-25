@@ -28,5 +28,21 @@ def format_string_with_utc(s):
     )
 
 
-def chunk(list, size):
-    return [list[i : i + size] for i in range(0, len(list), size)]
+def chunk(l, size):
+    return [l[i : i + size] for i in range(0, len(l), size)]
+
+def get_first(iterable, value=None, key=None, default=None):
+    """
+    References: https://realpython.com/python-first-match/
+    """
+    match value is None, callable(key):
+        case (True, True):
+            gen = (elem for elem in iterable if key(elem))
+        case (False, True):
+            gen = (elem for elem in iterable if key(elem) == value)
+        case (True, False):
+            gen = (elem for elem in iterable if elem)
+        case (False, False):
+            gen = (elem for elem in iterable if elem == value)
+
+    return next(gen, default)
