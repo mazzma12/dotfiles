@@ -27,6 +27,10 @@ def format_string_with_utc(s):
         filter(None, [datetime.datetime.utcnow().strftime("%Y%m%d%H%M%S"), s])
     )
 
+def chunks(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in range(0, len(lst), n):
+        yield lst[i : i + n]
 
 def chunk(l, size):
     return [l[i : i + size] for i in range(0, len(l), size)]
