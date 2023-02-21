@@ -1,4 +1,5 @@
 alias c=clear
+alias o='xdg-open'
 # ----------------------
 # Git Aliases
 # ----------------------
@@ -7,6 +8,7 @@ alias ga='git add'
 alias gaa='git add .'
 alias gaaa='git add --all'
 alias gau='git add --update'
+alias gaup='git add --update -p'
 alias gb='git branch'
 alias gbd='git branch --delete '
 alias gc='git commit'
@@ -37,6 +39,10 @@ alias gstl='git stash list'
 alias gstp='git stash pop'
 alias gsts='git stash save'
 alias gcp='git cherry-pick'
+alias gr='git remote'
+alias grp='git remote prune'
+alias grh='git reset HEAD'
+alias gpuoh='git push -u origin HEAD'
 
 # setup autocompletion
 # https://stackoverflow.com/a/52169814/7657658
@@ -47,6 +53,7 @@ if [ -f "/usr/share/bash-completion/completions/git" ]; then
   __git_complete gp _git_pull
   __git_complete gb _git_branch
   __git_complete gcp _git_cherry_pick
+  __git_complete gr _git_remote
 
 else
   echo "Error loading git completions"
