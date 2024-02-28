@@ -194,10 +194,10 @@ bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
 # TMUX: open on shell login if not exists
 # https://unix.stackexchange.com/a/113768/268905
-if which tmux >/dev/null 2>&1; then
+# if which tmux >/dev/null 2>&1; then
     # if no session is started, start a new session
-    test -z ${TMUX} && tmux
-fi
+    # test -z ${TMUX} && tmux
+# fi
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Private file and variables
