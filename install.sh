@@ -13,8 +13,8 @@ main() {
 	if [ -d $dotfiles_home ]; then
 		printf "Dotfiles already installed.\n"
 	fi
-	
-	git clone --bare https://github.com/mazzma12/dotfiles.git --branch $branch $dotfiles_home 
+
+	git clone --bare https://github.com/mazzma12/dotfiles.git --branch $branch $dotfiles_home
 
 	if config checkout; then
 		echo "Checked out config without conflicts.";
@@ -27,15 +27,12 @@ main() {
 	config config status.showUntrackedFiles no
 
 	if which nvim >/dev/null 2>&1; then
-		nvim +slient +VimEnter +PlugInstall +qall > /dev/null 
+		nvim +slient +VimEnter +PlugInstall +qall > /dev/null
 	fi
 
 	if which vim >/dev/null 2>&1; then
-		vim +slient +VimEnter +PlugInstall +qall > /dev/null 
+		vim +slient +VimEnter +PlugInstall +qall > /dev/null
 	fi
 }
 
 main
-
-
-

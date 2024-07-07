@@ -1,13 +1,13 @@
 # Dotfiles
-Host config files for UNIX machines. The versioning system uses a git bare repository system as recommended in  
+Host config files for UNIX machines. The versioning system uses a git bare repository system as recommended in
 [Atlassian and Hacker News](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/)
 
 | branch | description |
 | ------ | ----------- |
-| master or *ubuntu* | For ubuntu 20.04 | 
-| manjaro | For Arch based distro | 
+| master or *ubuntu* | For ubuntu 20.04 |
+| manjaro | For Arch based distro |
 | pi | For raspberry pi *outdated* |
-| xless | For server config *outdated* | 
+| xless | For server config *outdated* |
 
 ## Setup new machine
 
@@ -38,7 +38,7 @@ export DOTFILES_HOME="$HOME/.cfg" # Default install directory
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mazzma12/dotfiles/master/install.sh)"
 ```
 
-## Troubleshooting 
+## Troubleshooting
 
 ```bash
 # Latest tmux follow: https://gist.github.com/P7h/91e14096374075f5316e

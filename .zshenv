@@ -19,7 +19,7 @@ export N_PROC="$(grep -c processor /proc/cpuinfo)"
 # Files on the custom/ directory will be automatically loaded by the init
 # script, in alphabetical order.
 
-# Config 
+# Config
 alias zshconfig="$EDITOR ~/.zshrc"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ve="$EDITOR $HOME/.vimrc"
@@ -41,7 +41,7 @@ alias -g S='| sort'
 alias -g G='| grep' # now you can do: ls foo G something
 alias -g X='| xclip -sel c' # Pipe to clipboard
 alias o="xdg-open"
-# Use vim to display man 
+# Use vim to display man
 # vman() { /usr/bin/man $* | col -b | vim -c 'set ft=man nomod nolist' -c 'nmap q :q<CR>' -; }
 # alias man='vman'
 
@@ -55,7 +55,7 @@ alias watch_nvidia='watch -d -n 1 nvidia-smi'
 alias db="docker build"
 alias dr="docker run"
 
-# Git 
+# Git
 alias gpom="git pull origin master"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gp='git push origin HEAD' # Push branch with same name as local

@@ -13,18 +13,18 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# set PATH so it includes --user install if folder exists 
+# set PATH so it includes --user install if folder exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Preferred editor 
+# Preferred editor
 if which nvim >/dev/null 2>&1; then
   export EDITOR='nvim'
   # For lazy loading
   alias vi='nvm > /dev/null && nvim'
 else
-  export EDITOR='vi' 
+  export EDITOR='vi'
 fi
 
 if [ -n "$DISPLAY" ]; then

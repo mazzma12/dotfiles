@@ -50,4 +50,3 @@ def get_first(iterable, value=None, key=None, default=None):
             gen = (elem for elem in iterable if elem == value)
 
     return next(gen, default)
-

@@ -12,6 +12,3 @@ main(){
 	rm -Ir $DOTFILES_HOME
 }
 main
-
-
-

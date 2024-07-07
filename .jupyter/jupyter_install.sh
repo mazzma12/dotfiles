@@ -12,5 +12,5 @@ jupyter nbextension enable jupyter-js-widgets/extension
 jupyter nbextension enable table-of-contents
 jupyter nbextension enable --py --user widgetsnbextension
 
-jt -t oceans16 
+jt -t oceans16
 set +x

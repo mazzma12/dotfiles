@@ -12,4 +12,3 @@ done
 fdupes -dN $bg_folder
 # Display bg with :
 # feh --randomize --bg-fill $bg_folder
-

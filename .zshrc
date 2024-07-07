@@ -35,7 +35,7 @@ fi
 
 # Then, source plugins and add commands to $PATH
 export PURE_GIT_PULL=0
-zplug load 
+zplug load
 
 # Lines configured by zsh-newuser-install
 export HISTFILE="$HOME/.zsh_history"
