@@ -154,7 +154,7 @@
 #                        standard library module, which allows setting of the
 #                        BROWSER environment variable to override it.
 #  Default: ''
-c.NotebookApp.browser = '/snap/bin/firefox'
+# c.NotebookApp.browser = '/snap/bin/firefox'
 
 ## The full path to an SSL/TLS certificate file.
 #  Default: ''
