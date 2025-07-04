@@ -16,6 +16,7 @@
         #
         # Setting to git 2.0 default to suppress warning message
         default = simple
+	autoSetupRemote = true
 [core]
 
   excludesfile = ~/.gitignore_global
@@ -85,6 +86,7 @@
   # https://stackoverflow.com/a/57601163/7657658
   stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
             do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
+  cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|main\\|develop' | xargs -n 1 -r git branch -d"
 
 [filter "jupyter_clear_output"]
     clean = "jupyter nbconvert --stdin --stdout --log-level=ERROR \
