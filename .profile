@@ -49,3 +49,6 @@ _pip_completion()
 }
 complete -o default -F _pip_completion $HOME/.pyenv/versions/neovim/bin/python -m pip
 # pip bash completion end
+if [ -f "$HOME/.local/bin" ] ; then
+  source ~/.dbt-completion.bash
+fi
