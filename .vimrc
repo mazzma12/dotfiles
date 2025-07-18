@@ -47,8 +47,39 @@ set shiftwidth=2    " when indenting with '>', use 4 spaces width
 set expandtab       " tabs are spaces https://dougblack.io/words/a-good-vimrc.html
 set smarttab
 set backspace=indent,eol,start
-" colorscheme solarized
-let g:airline_solarized_bg='dark'
+" Auto detect light/dark mode from system
+function! SetColorSchemeFromSystem()
+  " Try to detect system theme using common methods
+  let l:theme = ""
+
+  " For GNOME
+  if executable('gsettings')
+    let l:theme = trim(system('gsettings get org.gnome.desktop.interface color-scheme'))
+    if l:theme =~ "dark"
+      let g:airline_solarized_bg='dark'
+      silent! colorscheme flattened_dark
+    elseif l:theme =~ "light" || l:theme =~ "default"
+      let g:airline_solarized_bg='light'
+      silent! colorscheme flattened_light
+    endif
+    return
+  endif
+
+
+  " Fallback to dark theme if detection fails
+  let g:airline_solarized_bg='dark'
+  silent! colorscheme flattened_dark
+endfunction
+
+" Set theme on startup
+call SetColorSchemeFromSystem()
+
+" Optionally update theme when vim gains focus
+augroup ThemeAutoSwitch
+  autocmd!
+  autocmd FocusGained * call SetColorSchemeFromSystem()
+augroup END
+
 let g:airline_theme='solarized'
 " code completion SuperTab config
 let g:SuperTabDefaultCompletionType = "context"
@@ -57,7 +88,6 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabLongestEnhanced = 1
 let g:SuperTabDefaultCompletionType = ""
 " let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-silent! colorscheme flattened_dark
 
 " Line number column on the left
 " Taken from https://jeffkreeftmeijer.com/vim-number/
