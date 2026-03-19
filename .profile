@@ -31,7 +31,7 @@ if [ -n "$DISPLAY" ]; then
 	# Keyboard conf
 	setxkbmap us -variant altgr-intl
 	# Change cap lock to Esc
-	xmodmap $HOME/.Xmodmap
+	# xmodmap $HOME/.Xmodmap
 fi
 
 # https://mywiki.wooledge.org/DotFiles

@@ -32,6 +32,7 @@ alias gpr='git pull --rebase'
 alias gr='git rebase'
 alias gs='git status'
 alias gss='git status --short'
+alias gsw='git switch'
 alias gst='git stash'
 alias gsta='git stash apply'
 alias gstd='git stash drop'
@@ -58,3 +59,4 @@ if [ -f "/usr/share/bash-completion/completions/git" ]; then
 else
   echo "Error loading git completions"
 fi
+alias code=code-insiders

@@ -128,42 +128,42 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PYENV_ROOT="$HOME/.pyenv"
-if [ -d "$PYENV_ROOT" ] ; then
-    PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-		eval "$(pyenv virtualenv-init -)"
-		# Set simple prompt
-		export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-		pyenvVirtualenvUpdatePrompt() {
-				RED='\[\e[0;31m\]'
-				GREEN='\[\e[0;32m\]'
-				BLUE='\[\e[0;34m\]'
-				RESET='\[\e[0m\]'
-				[ -z "$PYENV_VIRTUALENV_ORIGINAL_PS1" ] && export PYENV_VIRTUALENV_ORIGINAL_PS1="$PS1"
-				[ -z "$PYENV_VIRTUALENV_GLOBAL_NAME" ] && export PYENV_VIRTUALENV_GLOBAL_NAME="$(pyenv global)"
-				VENV_NAME="$(pyenv version-name)"
-				VENV_NAME="${VENV_NAME##*/}"
-				GLOBAL_NAME="$PYENV_VIRTUALENV_GLOBAL_NAME"
-
-				# non-global versions:
-				COLOR="$BLUE"
-				# global version:
-				[ "$VENV_NAME" == "$GLOBAL_NAME" ] && COLOR="$RED"
-				# virtual envs:
-				[ "${VIRTUAL_ENV##*/}" == "$VENV_NAME" ] && COLOR="$GREEN"
-
-				if [ -z "$COLOR" ]; then
-						PS1="$PYENV_VIRTUALENV_ORIGINAL_PS1"
-				else
-						PS1="($COLOR${VENV_NAME}$RESET)$PYENV_VIRTUALENV_ORIGINAL_PS1"
-				fi
-				export PS1
-		}
-		export PROMPT_COMMAND="$PROMPT_COMMAND pyenvVirtualenvUpdatePrompt;"
-fi
-
+# export PYENV_ROOT="$HOME/.pyenv"
+# if [ -d "$PYENV_ROOT" ] ; then
+#     PATH="$PATH:$PYENV_ROOT/bin"
+#     eval "$(pyenv init --path)"
+#     eval "$(pyenv init -)"
+# 		eval "$(pyenv virtualenv-init -)"
+# 		# Set simple prompt
+# 		export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# 		pyenvVirtualenvUpdatePrompt() {
+# 				RED='\[\e[0;31m\]'
+# 				GREEN='\[\e[0;32m\]'
+# 				BLUE='\[\e[0;34m\]'
+# 				RESET='\[\e[0m\]'
+# 				[ -z "$PYENV_VIRTUALENV_ORIGINAL_PS1" ] && export PYENV_VIRTUALENV_ORIGINAL_PS1="$PS1"
+# 				[ -z "$PYENV_VIRTUALENV_GLOBAL_NAME" ] && export PYENV_VIRTUALENV_GLOBAL_NAME="$(pyenv global)"
+# 				VENV_NAME="$(pyenv version-name)"
+# 				VENV_NAME="${VENV_NAME##*/}"
+# 				GLOBAL_NAME="$PYENV_VIRTUALENV_GLOBAL_NAME"
+#
+# 				# non-global versions:
+# 				COLOR="$BLUE"
+# 				# global version:
+# 				[ "$VENV_NAME" == "$GLOBAL_NAME" ] && COLOR="$RED"
+# 				# virtual envs:
+# 				[ "${VIRTUAL_ENV##*/}" == "$VENV_NAME" ] && COLOR="$GREEN"
+#
+# 				if [ -z "$COLOR" ]; then
+# 						PS1="$PYENV_VIRTUALENV_ORIGINAL_PS1"
+# 				else
+# 						PS1="($COLOR${VENV_NAME}$RESET)$PYENV_VIRTUALENV_ORIGINAL_PS1"
+# 				fi
+# 				export PS1
+# 		}
+# 		export PROMPT_COMMAND="$PROMPT_COMMAND pyenvVirtualenvUpdatePrompt;"
+# fi
+#
 # https://broken-by.me/lazy-load-nvm/
 nvm() {
     unset -f nvm
@@ -208,8 +208,8 @@ fi
 # Add some colour to LESS/MAN pages
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;33m'
-export LESS_TERMCAP_me=$'\E[0m'
 export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_me=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;42;30m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
